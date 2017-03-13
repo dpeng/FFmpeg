@@ -918,6 +918,9 @@
     <ClCompile Include="..\libavcodec\cinepakenc.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\clearvideo.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\cljrdec.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>

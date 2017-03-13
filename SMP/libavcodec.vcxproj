@@ -365,6 +365,7 @@
     <ClCompile Include="..\libavcodec\cfhddata.c" />
     <ClCompile Include="..\libavcodec\cinepak.c" />
     <ClCompile Include="..\libavcodec\cinepakenc.c" />
+    <ClCompile Include="..\libavcodec\clearvideo.c" />
     <ClCompile Include="..\libavcodec\cljrdec.c" />
     <ClCompile Include="..\libavcodec\cljrenc.c" />
     <ClCompile Include="..\libavcodec\cllc.c" />

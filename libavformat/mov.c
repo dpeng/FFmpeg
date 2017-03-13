@@ -2847,10 +2847,22 @@ static int64_t find_prev_closest_index(AVStream *st,
     AVIndexEntry *e_keep = st->index_entries;
     int nb_keep = st->nb_index_entries;
     int64_t found = -1;
+    int64_t i = 0;
 
     st->index_entries = e_old;
     st->nb_index_entries = nb_old;
     found = av_index_search_timestamp(st, timestamp, flag | AVSEEK_FLAG_BACKWARD);
+
+    // Keep going backwards in the index entries until the timestamp is the same.
+    if (found >= 0) {
+        for (i = found; i > 0 && e_old[i].timestamp == e_old[i - 1].timestamp;
+             i--) {
+            if ((flag & AVSEEK_FLAG_ANY) ||
+                (e_old[i - 1].flags & AVINDEX_KEYFRAME)) {
+                found = i - 1;
+            }
+        }
+    }
 
     /* restore AVStream state*/
     st->index_entries = e_keep;
@@ -4623,8 +4635,10 @@ static int mov_read_sv3d(MOVContext *c, AVIOContext *pb, MOVAtom atom)
 {
     AVStream *st;
     MOVStreamContext *sc;
-    int size;
+    int size, layout;
     int32_t yaw, pitch, roll;
+    size_t l = 0, t = 0, r = 0, b = 0;
+    size_t padding = 0;
     uint32_t tag;
     enum AVSphericalProjection projection;
 
@@ -4685,10 +4699,33 @@ static int mov_read_sv3d(MOVContext *c, AVIOContext *pb, MOVAtom atom)
     avio_skip(pb, 4); /*  version + flags */
     switch (tag) {
     case MKTAG('c','b','m','p'):
+        layout = avio_rb32(pb);
+        if (layout) {
+            av_log(c->fc, AV_LOG_WARNING,
+                   "Unsupported cubemap layout %d\n", layout);
+            return 0;
+        }
         projection = AV_SPHERICAL_CUBEMAP;
+        padding = avio_rb32(pb);
         break;
     case MKTAG('e','q','u','i'):
-        projection = AV_SPHERICAL_EQUIRECTANGULAR;
+        t = avio_rb32(pb);
+        b = avio_rb32(pb);
+        l = avio_rb32(pb);
+        r = avio_rb32(pb);
+
+        if (b >= UINT_MAX - t || r >= UINT_MAX - l) {
+            av_log(c->fc, AV_LOG_ERROR,
+                   "Invalid bounding rectangle coordinates %"SIZE_SPECIFIER","
+                   "%"SIZE_SPECIFIER",%"SIZE_SPECIFIER",%"SIZE_SPECIFIER"\n",
+                   l, t, r, b);
+            return AVERROR_INVALIDDATA;
+        }
+
+        if (l || t || r || b)
+            projection = AV_SPHERICAL_EQUIRECTANGULAR_TILE;
+        else
+            projection = AV_SPHERICAL_EQUIRECTANGULAR;
         break;
     default:
         av_log(c->fc, AV_LOG_ERROR, "Unknown projection type\n");
@@ -4704,6 +4741,13 @@ static int mov_read_sv3d(MOVContext *c, AVIOContext *pb, MOVAtom atom)
     sc->spherical->yaw   = yaw;
     sc->spherical->pitch = pitch;
     sc->spherical->roll  = roll;
+
+    sc->spherical->padding = padding;
+
+    sc->spherical->bound_left   = l;
+    sc->spherical->bound_top    = t;
+    sc->spherical->bound_right  = r;
+    sc->spherical->bound_bottom = b;
 
     return 0;
 }
