@@ -343,6 +343,14 @@ static void dump_mastering_display_metadata(void *ctx, AVPacketSideData* sd) {
            av_q2d(metadata->min_luminance), av_q2d(metadata->max_luminance));
 }
 
+static void dump_content_light_metadata(void *ctx, AVPacketSideData* sd)
+{
+    AVContentLightMetadata* metadata = (AVContentLightMetadata*)sd->data;
+    av_log(ctx, AV_LOG_INFO, "Content Light Level Metadata, "
+           "MaxCLL=%d, MaxFALL=%d",
+           metadata->MaxCLL, metadata->MaxFALL);
+}
+
 static void dump_spherical(void *ctx, AVCodecParameters *par, AVPacketSideData *sd)
 {
     AVSphericalMapping *spherical = (AVSphericalMapping *)sd->data;
@@ -353,16 +361,7 @@ static void dump_spherical(void *ctx, AVCodecParameters *par, AVPacketSideData *
         return;
     }
 
-    if (spherical->projection == AV_SPHERICAL_EQUIRECTANGULAR)
-        av_log(ctx, AV_LOG_INFO, "equirectangular ");
-    else if (spherical->projection == AV_SPHERICAL_CUBEMAP)
-        av_log(ctx, AV_LOG_INFO, "cubemap ");
-    else if (spherical->projection == AV_SPHERICAL_EQUIRECTANGULAR_TILE)
-        av_log(ctx, AV_LOG_INFO, "tiled equirectangular ");
-    else {
-        av_log(ctx, AV_LOG_WARNING, "unknown");
-        return;
-    }
+    av_log(ctx, AV_LOG_INFO, "%s ", av_spherical_projection_name(spherical->projection));
 
     yaw = ((double)spherical->yaw) / (1 << 16);
     pitch = ((double)spherical->pitch) / (1 << 16);
@@ -375,7 +374,7 @@ static void dump_spherical(void *ctx, AVCodecParameters *par, AVPacketSideData *
                                  &l, &t, &r, &b);
         av_log(ctx, AV_LOG_INFO, "[%zu, %zu, %zu, %zu] ", l, t, r, b);
     } else if (spherical->projection == AV_SPHERICAL_CUBEMAP) {
-        av_log(ctx, AV_LOG_INFO, "[pad %zu] ", spherical->padding);
+        av_log(ctx, AV_LOG_INFO, "[pad %"PRIu32"] ", spherical->padding);
     }
 }
 
@@ -421,7 +420,8 @@ static void dump_sidedata(void *ctx, AVStream *st, const char *indent)
             dump_audioservicetype(ctx, &sd);
             break;
         case AV_PKT_DATA_QUALITY_STATS:
-            av_log(ctx, AV_LOG_INFO, "quality factor: %d, pict_type: %c", AV_RL32(sd.data), av_get_picture_type_char(sd.data[4]));
+            av_log(ctx, AV_LOG_INFO, "quality factor: %"PRId32", pict_type: %c",
+                   AV_RL32(sd.data), av_get_picture_type_char(sd.data[4]));
             break;
         case AV_PKT_DATA_CPB_PROPERTIES:
             av_log(ctx, AV_LOG_INFO, "cpb: ");
@@ -433,6 +433,9 @@ static void dump_sidedata(void *ctx, AVStream *st, const char *indent)
         case AV_PKT_DATA_SPHERICAL:
             av_log(ctx, AV_LOG_INFO, "spherical: ");
             dump_spherical(ctx, st->codecpar, &sd);
+            break;
+        case AV_PKT_DATA_CONTENT_LIGHT_LEVEL:
+            dump_content_light_metadata(ctx, &sd);
             break;
         default:
             av_log(ctx, AV_LOG_INFO,
@@ -592,7 +595,7 @@ void av_dump_format(AVFormatContext *ic, int index,
         }
         av_log(NULL, AV_LOG_INFO, ", bitrate: ");
         if (ic->bit_rate)
-            av_log(NULL, AV_LOG_INFO, "%"PRId64" kb/s", (int64_t)ic->bit_rate / 1000);
+            av_log(NULL, AV_LOG_INFO, "%"PRId64" kb/s", ic->bit_rate / 1000);
         else
             av_log(NULL, AV_LOG_INFO, "N/A");
         av_log(NULL, AV_LOG_INFO, "\n");

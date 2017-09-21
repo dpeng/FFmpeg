@@ -276,6 +276,14 @@ fail:
     return ret;
 }
 
+static void resample_free(ResampleContext **cc){
+    ResampleContext *c = *cc;
+    if(!c)
+        return;
+    av_freep(&c->filter_bank);
+    av_freep(cc);
+}
+
 static ResampleContext *resample_init(ResampleContext *c, int out_rate, int in_rate, int filter_size, int phase_shift, int linear,
                                     double cutoff0, enum AVSampleFormat format, enum SwrFilterType filter_type, double kaiser_beta,
                                     double precision, int cheby, int exact_rational)
@@ -302,6 +310,7 @@ static ResampleContext *resample_init(ResampleContext *c, int out_rate, int in_r
     if (!c || c->phase_count != phase_count || c->linear!=linear || c->factor != factor
            || c->filter_length != filter_length || c->format != format
            || c->filter_type != filter_type || c->kaiser_beta != kaiser_beta) {
+        resample_free(&c);
         c = av_mallocz(sizeof(*c));
         if (!c)
             return NULL;
@@ -371,13 +380,6 @@ error:
     return NULL;
 }
 
-static void resample_free(ResampleContext **c){
-    if(!*c)
-        return;
-    av_freep(&(*c)->filter_bank);
-    av_freep(c);
-}
-
 static int rebuild_filter_bank_with_compensation(ResampleContext *c)
 {
     uint8_t *new_filter_bank;
@@ -388,7 +390,7 @@ static int rebuild_filter_bank_with_compensation(ResampleContext *c)
     if (phase_count == c->phase_count)
         return 0;
 
-    av_assert0(!c->frac && !c->dst_incr_mod && !c->compensation_distance);
+    av_assert0(!c->frac && !c->dst_incr_mod);
 
     new_filter_bank = av_calloc(c->filter_alloc, (phase_count + 1) * c->felem_size);
     if (!new_filter_bank)
@@ -542,18 +544,21 @@ static int64_t get_out_samples(struct SwrContext *s, int in_samples) {
 }
 
 static int resample_flush(struct SwrContext *s) {
+    ResampleContext *c = s->resample;
     AudioData *a= &s->in_buffer;
     int i, j, ret;
-    if((ret = swri_realloc_audio(a, s->in_buffer_index + 2*s->in_buffer_count)) < 0)
+    int reflection = (FFMIN(s->in_buffer_count, c->filter_length) + 1) / 2;
+
+    if((ret = swri_realloc_audio(a, s->in_buffer_index + s->in_buffer_count + reflection)) < 0)
         return ret;
     av_assert0(a->planar);
     for(i=0; i<a->ch_count; i++){
-        for(j=0; j<s->in_buffer_count; j++){
+        for(j=0; j<reflection; j++){
             memcpy(a->ch[i] + (s->in_buffer_index+s->in_buffer_count+j  )*a->bps,
                 a->ch[i] + (s->in_buffer_index+s->in_buffer_count-j-1)*a->bps, a->bps);
         }
     }
-    s->in_buffer_count += (s->in_buffer_count+1)/2;
+    s->in_buffer_count += reflection;
     return 0;
 }
 

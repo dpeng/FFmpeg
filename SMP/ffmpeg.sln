@@ -1,7 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-VisualStudioVersion = 12.0.30501.0
-MinimumVisualStudioVersion = 10.0.40219.1
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libavcodec", "libavcodec.vcxproj", "{B4824EFF-C340-425D-A4A8-E2E02A71A7AE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CE6C44DD-6E38-4293-8AB3-04EE28CCA972} = {CE6C44DD-6E38-4293-8AB3-04EE28CCA972}
@@ -341,7 +342,9 @@ Global
 		{4081C77E-F1F7-49FA-9BD8-A4D267C83716}.DebugDLLStaticDeps|x86.ActiveCfg = DebugDLL|Win32
 		{4081C77E-F1F7-49FA-9BD8-A4D267C83716}.DebugDLLStaticDeps|x64.ActiveCfg = DebugDLL|x64
 		{4081C77E-F1F7-49FA-9BD8-A4D267C83716}.Release|x86.ActiveCfg = Release|Win32
+		{4081C77E-F1F7-49FA-9BD8-A4D267C83716}.Release|x86.Build.0 = Release|Win32
 		{4081C77E-F1F7-49FA-9BD8-A4D267C83716}.Release|x64.ActiveCfg = Release|x64
+		{4081C77E-F1F7-49FA-9BD8-A4D267C83716}.Release|x64.Build.0 = Release|x64
 		{4081C77E-F1F7-49FA-9BD8-A4D267C83716}.ReleaseDLL|x86.ActiveCfg = ReleaseDLL|Win32
 		{4081C77E-F1F7-49FA-9BD8-A4D267C83716}.ReleaseDLL|x64.ActiveCfg = ReleaseDLL|x64
 		{4081C77E-F1F7-49FA-9BD8-A4D267C83716}.ReleaseDLLStaticDeps|x86.ActiveCfg = ReleaseDLL|Win32
@@ -355,7 +358,9 @@ Global
 		{E2A6865D-BD68-45B4-8130-EFD620F2C7EB}.DebugDLLStaticDeps|x86.ActiveCfg = DebugDLL|Win32
 		{E2A6865D-BD68-45B4-8130-EFD620F2C7EB}.DebugDLLStaticDeps|x64.ActiveCfg = DebugDLL|x64
 		{E2A6865D-BD68-45B4-8130-EFD620F2C7EB}.Release|x86.ActiveCfg = Release|Win32
+		{E2A6865D-BD68-45B4-8130-EFD620F2C7EB}.Release|x86.Build.0 = Release|Win32
 		{E2A6865D-BD68-45B4-8130-EFD620F2C7EB}.Release|x64.ActiveCfg = Release|x64
+		{E2A6865D-BD68-45B4-8130-EFD620F2C7EB}.Release|x64.Build.0 = Release|x64
 		{E2A6865D-BD68-45B4-8130-EFD620F2C7EB}.ReleaseDLL|x86.ActiveCfg = ReleaseDLL|Win32
 		{E2A6865D-BD68-45B4-8130-EFD620F2C7EB}.ReleaseDLL|x64.ActiveCfg = ReleaseDLL|x64
 		{E2A6865D-BD68-45B4-8130-EFD620F2C7EB}.ReleaseDLLStaticDeps|x86.ActiveCfg = ReleaseDLL|Win32
@@ -369,7 +374,9 @@ Global
 		{147A422A-FA63-4724-A5D9-08B1CAFDAB59}.DebugDLLStaticDeps|x86.ActiveCfg = DebugDLL|Win32
 		{147A422A-FA63-4724-A5D9-08B1CAFDAB59}.DebugDLLStaticDeps|x64.ActiveCfg = DebugDLL|x64
 		{147A422A-FA63-4724-A5D9-08B1CAFDAB59}.Release|x86.ActiveCfg = Release|Win32
+		{147A422A-FA63-4724-A5D9-08B1CAFDAB59}.Release|x86.Build.0 = Release|Win32
 		{147A422A-FA63-4724-A5D9-08B1CAFDAB59}.Release|x64.ActiveCfg = Release|x64
+		{147A422A-FA63-4724-A5D9-08B1CAFDAB59}.Release|x64.Build.0 = Release|x64
 		{147A422A-FA63-4724-A5D9-08B1CAFDAB59}.ReleaseDLL|x86.ActiveCfg = ReleaseDLL|Win32
 		{147A422A-FA63-4724-A5D9-08B1CAFDAB59}.ReleaseDLL|x64.ActiveCfg = ReleaseDLL|x64
 		{147A422A-FA63-4724-A5D9-08B1CAFDAB59}.ReleaseDLLStaticDeps|x86.ActiveCfg = ReleaseDLL|Win32

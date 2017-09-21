@@ -1,15 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{2f2c4a75-f563-4eda-81a8-99f05e978394}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{9dcb9da6-1c85-40b9-b875-9bdf9575be2d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{e05e69ea-955c-4c2c-83f8-ff30c0007387}</UniqueIdentifier>
-    </Filter>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+
+    <Filter Include="Header Files">
+
+      <UniqueIdentifier>{2f2c4a75-f563-4eda-81a8-99f05e978394}</UniqueIdentifier>
+
+    </Filter>
+
+    <Filter Include="Source Files">
+
+      <UniqueIdentifier>{9dcb9da6-1c85-40b9-b875-9bdf9575be2d}</UniqueIdentifier>
+
+    </Filter>
+
+    <Filter Include="Resource Files">
+
+      <UniqueIdentifier>{e05e69ea-955c-4c2c-83f8-ff30c0007387}</UniqueIdentifier>
+
+    </Filter>
+
     <Filter Include="Header Files\libavcodec">
       <UniqueIdentifier>{cac6df1e-4a60-495c-8daa-5707dc1216ff}</UniqueIdentifier>
     </Filter>
@@ -22,11 +34,16 @@
     <Filter Include="Source Files\libavcodec\x86">
       <UniqueIdentifier>{fd9e10e9-18f6-437d-b5d7-17290540c8b8}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".\libavcodec.def">
-      <Filter>Resource Files</Filter>
-    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <None Include=".\libavcodec.def">
+
+      <Filter>Resource Files</Filter>
+
+    </None>
+
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\libavcodec\avcodecres.rc">
@@ -2765,5 +2782,6 @@
     <ClInclude Include="..\libavcodec\xvmc.h">
       <Filter>Header Files\libavcodec</Filter>
     </ClInclude>
-  </ItemGroup>
+  </ItemGroup>
+
 </Project>

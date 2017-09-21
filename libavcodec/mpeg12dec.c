@@ -994,7 +994,7 @@ static int mpeg_decode_mb(MpegEncContext *s, int16_t block[12][64])
 
             cbp = get_vlc2(&s->gb, ff_mb_pat_vlc.table, MB_PAT_VLC_BITS, 1);
             if (mb_block_count > 6) {
-                cbp <<= mb_block_count - 6;
+                cbp *= 1 << mb_block_count - 6;
                 cbp  |= get_bits(&s->gb, mb_block_count - 6);
                 s->bdsp.clear_blocks(s->block[6]);
             }
@@ -1159,6 +1159,7 @@ static const enum AVPixelFormat mpeg2_hwaccel_pixfmt_list_420[] = {
 #endif
 #if CONFIG_MPEG2_D3D11VA_HWACCEL
     AV_PIX_FMT_D3D11VA_VLD,
+    AV_PIX_FMT_D3D11,
 #endif
 #if CONFIG_MPEG2_VAAPI_HWACCEL
     AV_PIX_FMT_VAAPI,
@@ -1242,7 +1243,8 @@ static int mpeg_decode_postinit(AVCodecContext *avctx)
 
     if (avctx->codec_id == AV_CODEC_ID_MPEG1VIDEO) {
         // MPEG-1 aspect
-        avctx->sample_aspect_ratio = av_d2q(1.0 / ff_mpeg1_aspect[s->aspect_ratio_info], 255);
+        AVRational aspect_inv = av_d2q(ff_mpeg1_aspect[s->aspect_ratio_info], 255);
+        avctx->sample_aspect_ratio = (AVRational) { aspect_inv.den, aspect_inv.num };
     } else { // MPEG-2
         // MPEG-2 aspect
         if (s->aspect_ratio_info > 1) {
@@ -1866,7 +1868,7 @@ static int mpeg_decode_slice(MpegEncContext *s, int mb_y,
         s->dest[1] +=(16 >> lowres) >> s->chroma_x_shift;
         s->dest[2] +=(16 >> lowres) >> s->chroma_x_shift;
 
-        ff_mpv_decode_mb(s, s->block);
+        ff_mpv_reconstruct_mb(s, s->block);
 
         if (++s->mb_x >= s->mb_width) {
             const int mb_size = 16 >> s->avctx->lowres;
