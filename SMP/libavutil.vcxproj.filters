@@ -1,27 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
   <ItemGroup>
-
     <Filter Include="Header Files">
-
       <UniqueIdentifier>{2f2c4a75-f563-4eda-81a8-99f05e978394}</UniqueIdentifier>
-
     </Filter>
-
     <Filter Include="Source Files">
-
       <UniqueIdentifier>{9dcb9da6-1c85-40b9-b875-9bdf9575be2d}</UniqueIdentifier>
-
     </Filter>
-
     <Filter Include="Resource Files">
-
       <UniqueIdentifier>{e05e69ea-955c-4c2c-83f8-ff30c0007387}</UniqueIdentifier>
-
     </Filter>
-
     <Filter Include="Header Files\libavutil">
       <UniqueIdentifier>{cac6df1e-4a60-495c-8daa-5707dc1216ff}</UniqueIdentifier>
     </Filter>
@@ -41,15 +29,10 @@
       <UniqueIdentifier>{a2d068fe-f5d5-4b6f-95d4-f15631533341}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-
   <ItemGroup>
-
     <None Include=".\libavutil.def">
-
       <Filter>Resource Files</Filter>
-
     </None>
-
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\libavutil\avutilres.rc">
@@ -67,6 +50,9 @@
       <Filter>Source Files\libavutil\x86</Filter>
     </YASM>
     <YASM Include="..\libavutil\x86\float_dsp.asm">
+      <Filter>Source Files\libavutil\x86</Filter>
+    </YASM>
+    <YASM Include="..\libavutil\x86\imgutils.asm">
       <Filter>Source Files\libavutil\x86</Filter>
     </YASM>
     <YASM Include="..\libavutil\x86\lls.asm">
@@ -161,9 +147,6 @@
     <ClCompile Include="..\libavutil\hwcontext.c">
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavutil\imgutils.c">
-      <Filter>Source Files\libavutil</Filter>
-    </ClCompile>
     <ClCompile Include="..\libavutil\integer.c">
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
@@ -227,6 +210,9 @@
     <ClCompile Include="..\libavutil\sha512.c">
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavutil\slicethread.c">
+      <Filter>Source Files\libavutil</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavutil\spherical.c">
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
@@ -284,11 +270,17 @@
     <ClCompile Include="..\libavutil\x86\float_dsp_init.c">
       <Filter>Source Files\libavutil\x86</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavutil\x86\imgutils_init.c">
+      <Filter>Source Files\libavutil\x86</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavutil\x86\lls_init.c">
       <Filter>Source Files\libavutil\x86</Filter>
     </ClCompile>
     <ClCompile Include="..\libavutil\x86\pixelutils_init.c">
       <Filter>Source Files\libavutil\x86</Filter>
+    </ClCompile>
+    <ClCompile Include="libavutil\hwcontext_d3d11va_wrap.c">
+      <Filter>Source Files\libavutil</Filter>
     </ClCompile>
     <ClCompile Include="libavutil\dce_defs.c">
       <Filter>Source Files\libavutil</Filter>
@@ -297,6 +289,9 @@
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
     <ClCompile Include="..\libavutil\fixed_dsp.c">
+      <Filter>Source Files\libavutil</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavutil\imgutils.c">
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
     <ClCompile Include="..\libavutil\lls.c">
@@ -406,6 +401,12 @@
     <ClInclude Include="..\libavutil\hwcontext_cuda.h">
       <Filter>Header Files\libavutil</Filter>
     </ClInclude>
+    <ClInclude Include="..\libavutil\hwcontext_d3d11va.h">
+      <Filter>Header Files\libavutil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libavutil\hwcontext_drm.h">
+      <Filter>Header Files\libavutil</Filter>
+    </ClInclude>
     <ClInclude Include="..\libavutil\hwcontext_dxva2.h">
       <Filter>Header Files\libavutil</Filter>
     </ClInclude>
@@ -413,6 +414,9 @@
       <Filter>Header Files\libavutil</Filter>
     </ClInclude>
     <ClInclude Include="..\libavutil\hwcontext_vaapi.h">
+      <Filter>Header Files\libavutil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libavutil\hwcontext_videotoolbox.h">
       <Filter>Header Files\libavutil</Filter>
     </ClInclude>
     <ClInclude Include="..\libavutil\hwcontext_vdpau.h">
@@ -536,5 +540,4 @@
       <Filter>Header Files\libavutil</Filter>
     </ClInclude>
   </ItemGroup>
-
 </Project>

@@ -1,127 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
   <ItemGroup Label="ProjectConfigurations">
-
     <ProjectConfiguration Include="DebugDLL|Win32">
-
       <Configuration>DebugDLL</Configuration>
-
       <Platform>Win32</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="DebugDLL|x64">
-
       <Configuration>DebugDLL</Configuration>
-
       <Platform>x64</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="DebugDLLStaticDeps|Win32">
-
       <Configuration>DebugDLLStaticDeps</Configuration>
-
       <Platform>Win32</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="DebugDLLStaticDeps|x64">
-
       <Configuration>DebugDLLStaticDeps</Configuration>
-
       <Platform>x64</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="Debug|Win32">
-
       <Configuration>Debug</Configuration>
-
       <Platform>Win32</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="Debug|x64">
-
       <Configuration>Debug</Configuration>
-
       <Platform>x64</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="ReleaseDLL|Win32">
-
       <Configuration>ReleaseDLL</Configuration>
-
       <Platform>Win32</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="ReleaseDLL|x64">
-
       <Configuration>ReleaseDLL</Configuration>
-
       <Platform>x64</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="ReleaseDLLStaticDeps|Win32">
-
       <Configuration>ReleaseDLLStaticDeps</Configuration>
-
       <Platform>Win32</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="ReleaseDLLStaticDeps|x64">
-
       <Configuration>ReleaseDLLStaticDeps</Configuration>
-
       <Platform>x64</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="ReleaseLTO|Win32">
-
       <Configuration>ReleaseLTO</Configuration>
-
       <Platform>Win32</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="ReleaseLTO|x64">
-
       <Configuration>ReleaseLTO</Configuration>
-
       <Platform>x64</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="Release|Win32">
-
       <Configuration>Release</Configuration>
-
       <Platform>Win32</Platform>
-
     </ProjectConfiguration>
-
     <ProjectConfiguration Include="Release|x64">
-
       <Configuration>Release</Configuration>
-
       <Platform>x64</Platform>
-
     </ProjectConfiguration>
-
   </ItemGroup>
-
   <ItemGroup>
-
     <None Include=".\libavfilter.def" />
-
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\libavfilter\avfilterres.rc">
@@ -131,6 +69,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <YASM Include="..\libavfilter\x86\af_afir.asm" />
     <YASM Include="..\libavfilter\x86\vf_blend.asm" />
     <YASM Include="..\libavfilter\x86\vf_bwdif.asm" />
     <YASM Include="..\libavfilter\x86\colorspacedsp.asm" />
@@ -139,6 +78,7 @@
     <YASM Include="..\libavfilter\x86\vf_hqdn3d.asm" />
     <YASM Include="..\libavfilter\x86\vf_idet.asm" />
     <YASM Include="..\libavfilter\x86\vf_interlace.asm" />
+    <YASM Include="..\libavfilter\x86\vf_limiter.asm" />
     <YASM Include="..\libavfilter\x86\vf_maskedmerge.asm" />
     <YASM Include="..\libavfilter\x86\vf_pp7.asm" />
     <YASM Include="..\libavfilter\x86\vf_psnr.asm" />
@@ -173,6 +113,7 @@
     <ClCompile Include="..\libavfilter\pthread.c" />
     <ClCompile Include="..\libavfilter\f_bench.c" />
     <ClCompile Include="..\libavfilter\af_sidechaincompress.c" />
+    <ClCompile Include="..\libavfilter\af_acopy.c" />
     <ClCompile Include="..\libavfilter\af_afade.c" />
     <ClCompile Include="..\libavfilter\af_acrusher.c" />
     <ClCompile Include="..\libavfilter\af_adelay.c" />
@@ -211,6 +152,7 @@
     <ClCompile Include="..\libavfilter\split.c" />
     <ClCompile Include="..\libavfilter\af_astats.c" />
     <ClCompile Include="..\libavfilter\f_streamselect.c" />
+    <ClCompile Include="..\libavfilter\framesync.c" />
     <ClCompile Include="..\libavfilter\af_atempo.c" />
     <ClCompile Include="..\libavfilter\trim.c" />
     <ClCompile Include="..\libavfilter\af_channelmap.c" />
@@ -218,6 +160,7 @@
     <ClCompile Include="..\libavfilter\af_chorus.c" />
     <ClCompile Include="..\libavfilter\af_compand.c" />
     <ClCompile Include="..\libavfilter\af_compensationdelay.c" />
+    <ClCompile Include="..\libavfilter\af_crossfeed.c" />
     <ClCompile Include="..\libavfilter\af_crystalizer.c" />
     <ClCompile Include="..\libavfilter\af_dcshift.c" />
     <ClCompile Include="..\libavfilter\af_dynaudnorm.c" />
@@ -226,7 +169,9 @@
     <ClCompile Include="..\libavfilter\af_extrastereo.c" />
     <ClCompile Include="..\libavfilter\af_firequalizer.c" />
     <ClCompile Include="..\libavfilter\af_flanger.c" />
+    <ClCompile Include="..\libavfilter\af_haas.c" />
     <ClCompile Include="..\libavfilter\af_hdcd.c" />
+    <ClCompile Include="..\libavfilter\af_headphone.c" />
     <ClCompile Include="..\libavfilter\af_join.c" />
     <ClCompile Include="..\libavfilter\af_loudnorm.c" />
     <ClCompile Include="..\libavfilter\ebur128.c" />
@@ -236,6 +181,8 @@
     <ClCompile Include="..\libavfilter\af_silenceremove.c" />
     <ClCompile Include="..\libavfilter\af_stereotools.c" />
     <ClCompile Include="..\libavfilter\af_stereowiden.c" />
+    <ClCompile Include="..\libavfilter\af_superequalizer.c" />
+    <ClCompile Include="..\libavfilter\af_surround.c" />
     <ClCompile Include="..\libavfilter\af_tremolo.c" />
     <ClCompile Include="..\libavfilter\af_vibrato.c" />
     <ClCompile Include="..\libavfilter\af_volumedetect.c" />
@@ -252,8 +199,6 @@
     <ClCompile Include="..\libavfilter\vf_bitplanenoise.c" />
     <ClCompile Include="..\libavfilter\vf_blackdetect.c" />
     <ClCompile Include="..\libavfilter\vf_blackframe.c" />
-    <ClCompile Include="..\libavfilter\dualinput.c" />
-    <ClCompile Include="..\libavfilter\framesync.c" />
     <ClCompile Include="..\libavfilter\vf_boxblur.c" />
     <ClCompile Include="..\libavfilter\vf_chromakey.c" />
     <ClCompile Include="..\libavfilter\vf_ciescope.c" />
@@ -265,6 +210,7 @@
     <ClCompile Include="..\libavfilter\vf_colormatrix.c" />
     <ClCompile Include="..\libavfilter\vf_colorspace.c" />
     <ClCompile Include="..\libavfilter\vf_convolution.c" />
+    <ClCompile Include="..\libavfilter\vf_convolve.c" />
     <ClCompile Include="..\libavfilter\vf_copy.c" />
     <ClCompile Include="..\libavfilter\vf_cover_rect.c" />
     <ClCompile Include="..\libavfilter\lavfutils.c" />
@@ -276,11 +222,14 @@
     <ClCompile Include="..\libavfilter\vf_deband.c" />
     <ClCompile Include="..\libavfilter\vf_decimate.c" />
     <ClCompile Include="..\libavfilter\vf_neighbor.c" />
+    <ClCompile Include="..\libavfilter\vf_deflicker.c" />
     <ClCompile Include="..\libavfilter\vf_dejudder.c" />
     <ClCompile Include="..\libavfilter\vf_delogo.c" />
     <ClCompile Include="..\libavfilter\vf_deshake.c" />
+    <ClCompile Include="..\libavfilter\vf_despill.c" />
     <ClCompile Include="..\libavfilter\vf_detelecine.c" />
     <ClCompile Include="..\libavfilter\vf_displace.c" />
+    <ClCompile Include="..\libavfilter\vf_weave.c" />
     <ClCompile Include="..\libavfilter\vf_drawbox.c" />
     <ClCompile Include="..\libavfilter\f_drawgraph.c" />
     <ClCompile Include="..\libavfilter\vf_edgedetect.c" />
@@ -293,6 +242,7 @@
     <ClCompile Include="..\libavfilter\vf_fieldmatch.c" />
     <ClCompile Include="..\libavfilter\vf_fieldorder.c" />
     <ClCompile Include="..\libavfilter\vf_find_rect.c" />
+    <ClCompile Include="..\libavfilter\vf_floodfill.c" />
     <ClCompile Include="..\libavfilter\vf_format.c" />
     <ClCompile Include="..\libavfilter\vf_fps.c" />
     <ClCompile Include="..\libavfilter\vf_framepack.c" />
@@ -308,12 +258,14 @@
     <ClCompile Include="..\libavfilter\vf_stack.c" />
     <ClCompile Include="..\libavfilter\vf_hue.c" />
     <ClCompile Include="..\libavfilter\vf_hwdownload.c" />
+    <ClCompile Include="..\libavfilter\vf_hwmap.c" />
     <ClCompile Include="..\libavfilter\vf_hwupload_cuda.c" />
     <ClCompile Include="..\libavfilter\vf_hwupload.c" />
     <ClCompile Include="..\libavfilter\vf_hysteresis.c" />
     <ClCompile Include="..\libavfilter\vf_il.c" />
     <ClCompile Include="..\libavfilter\vf_kerndeint.c" />
     <ClCompile Include="..\libavfilter\vf_lenscorrection.c" />
+    <ClCompile Include="..\libavfilter\vf_lumakey.c" />
     <ClCompile Include="..\libavfilter\vf_lut.c" />
     <ClCompile Include="..\libavfilter\vf_lut2.c" />
     <ClCompile Include="..\libavfilter\vf_maskedclamp.c" />
@@ -338,6 +290,7 @@
     <ClCompile Include="..\libavfilter\vf_pixdesctest.c" />
     <ClCompile Include="..\libavfilter\vf_pp.c" />
     <ClCompile Include="..\libavfilter\vf_premultiply.c" />
+    <ClCompile Include="..\libavfilter\vf_pseudocolor.c" />
     <ClCompile Include="..\libavfilter\vf_qp.c" />
     <ClCompile Include="..\libavfilter\vf_random.c" />
     <ClCompile Include="..\libavfilter\vf_readeia608.c" />
@@ -359,6 +312,7 @@
     <ClCompile Include="..\libavfilter\vf_shuffleframes.c" />
     <ClCompile Include="..\libavfilter\vf_shuffleplanes.c" />
     <ClCompile Include="..\libavfilter\vf_signalstats.c" />
+    <ClCompile Include="..\libavfilter\vf_signature.c" />
     <ClCompile Include="..\libavfilter\vf_smartblur.c" />
     <ClCompile Include="..\libavfilter\vf_spp.c" />
     <ClCompile Include="..\libavfilter\vf_super2xsai.c" />
@@ -369,6 +323,7 @@
     <ClCompile Include="..\libavfilter\vf_thumbnail.c" />
     <ClCompile Include="..\libavfilter\vf_tile.c" />
     <ClCompile Include="..\libavfilter\vf_tinterlace.c" />
+    <ClCompile Include="..\libavfilter\vf_tonemap.c" />
     <ClCompile Include="..\libavfilter\vf_transpose.c" />
     <ClCompile Include="..\libavfilter\vf_unsharp.c" />
     <ClCompile Include="..\libavfilter\vf_uspp.c" />
@@ -377,7 +332,6 @@
     <ClCompile Include="..\libavfilter\vf_vflip.c" />
     <ClCompile Include="..\libavfilter\vf_vignette.c" />
     <ClCompile Include="..\libavfilter\vf_waveform.c" />
-    <ClCompile Include="..\libavfilter\vf_weave.c" />
     <ClCompile Include="..\libavfilter\vf_xbr.c" />
     <ClCompile Include="..\libavfilter\vf_zoompan.c" />
     <ClCompile Include="..\libavfilter\vsrc_testsrc.c" />
@@ -397,6 +351,7 @@
     <ClCompile Include="..\libavfilter\avf_showwaves.c" />
     <ClCompile Include="..\libavfilter\vaf_spectrumsynth.c" />
     <ClCompile Include="..\libavfilter\src_movie.c" />
+    <ClCompile Include="..\libavfilter\x86\af_afir_init.c" />
     <ClCompile Include="..\libavfilter\x86\vf_blend_init.c" />
     <ClCompile Include="..\libavfilter\x86\vf_bwdif_init.c" />
     <ClCompile Include="..\libavfilter\x86\colorspacedsp_init.c" />
@@ -405,6 +360,7 @@
     <ClCompile Include="..\libavfilter\x86\vf_hqdn3d_init.c" />
     <ClCompile Include="..\libavfilter\x86\vf_idet_init.c" />
     <ClCompile Include="..\libavfilter\x86\vf_interlace_init.c" />
+    <ClCompile Include="..\libavfilter\x86\vf_limiter_init.c" />
     <ClCompile Include="..\libavfilter\x86\vf_maskedmerge_init.c" />
     <ClCompile Include="..\libavfilter\x86\vf_pp7_init.c" />
     <ClCompile Include="..\libavfilter\x86\vf_psnr_init.c" />
@@ -419,6 +375,9 @@
     <ClCompile Include="..\libavfilter\x86\vf_yadif_init.c" />
     <ClCompile Include="libavfilter\log2_tab_wrap.c" />
     <ClCompile Include="libavfilter\dce_defs.c" />
+    <ClCompile Include="..\libavfilter\af_afir.c">
+      <ObjectFileName>$(IntDir)\libavfilter_af_afir.obj</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="..\libavfilter\af_volume.c">
       <ObjectFileName>$(IntDir)\libavfilter_af_volume.obj</ObjectFileName>
     </ClCompile>
@@ -445,6 +404,9 @@
     </ClCompile>
     <ClCompile Include="..\libavfilter\vf_interlace.c">
       <ObjectFileName>$(IntDir)\libavfilter_vf_interlace.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\libavfilter\vf_limiter.c">
+      <ObjectFileName>$(IntDir)\libavfilter_vf_limiter.obj</ObjectFileName>
     </ClCompile>
     <ClCompile Include="..\libavfilter\vf_maskedmerge.c">
       <ObjectFileName>$(IntDir)\libavfilter_vf_maskedmerge.obj</ObjectFileName>
@@ -493,523 +455,279 @@
     <ClInclude Include="..\libavfilter\buffersrc.h" />
     <ClInclude Include="..\libavfilter\version.h" />
   </ItemGroup>
-
   <PropertyGroup Label="Globals">
-
     <ProjectGuid>{BC2E1028-66CD-41A0-AF90-EEBD8CC52787}</ProjectGuid>
-
     <RootNamespace>libavfilter</RootNamespace>
-
   </PropertyGroup>
-
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-
     <ConfigurationType>StaticLibrary</ConfigurationType>
-
     <UseDebugLibraries>true</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-
     <ConfigurationType>StaticLibrary</ConfigurationType>
-
     <UseDebugLibraries>true</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'" Label="Configuration">
-
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-
     <UseDebugLibraries>true</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'" Label="Configuration">
-
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-
     <UseDebugLibraries>true</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'" Label="Configuration">
-
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-
     <UseDebugLibraries>true</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|x64'" Label="Configuration">
-
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-
     <UseDebugLibraries>true</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-
     <ConfigurationType>StaticLibrary</ConfigurationType>
-
     <UseDebugLibraries>false</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-
     <ConfigurationType>StaticLibrary</ConfigurationType>
-
     <UseDebugLibraries>false</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'" Label="Configuration">
-
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-
     <UseDebugLibraries>false</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'" Label="Configuration">
-
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-
     <UseDebugLibraries>false</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|Win32'" Label="Configuration">
-
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-
     <UseDebugLibraries>false</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|x64'" Label="Configuration">
-
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-
     <UseDebugLibraries>false</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|Win32'" Label="Configuration">
-
     <ConfigurationType>StaticLibrary</ConfigurationType>
-
     <UseDebugLibraries>false</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
     <WholeProgramOptimization>true</WholeProgramOptimization>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|x64'" Label="Configuration">
-
     <ConfigurationType>StaticLibrary</ConfigurationType>
-
     <UseDebugLibraries>false</UseDebugLibraries>
-
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-
     <CharacterSet>MultiByte</CharacterSet>
-
     <WholeProgramOptimization>true</WholeProgramOptimization>
-
   </PropertyGroup>
-
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\vsyasm.props" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\yasm.props" />
   </ImportGroup>
-
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|x64'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|Win32'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|x64'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|Win32'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|x64'" Label="PropertySheets">
-
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-
   </ImportGroup>
-
   <PropertyGroup Label="UserMacros" />
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
-
     <TargetName>avfilterd</TargetName>
-
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
-    <LinkIncremental>false</LinkIncremental>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">
-
     <TargetName>avfilterd</TargetName>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
-    <LinkIncremental>false</LinkIncremental>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'">
-
     <TargetName>avfilterd</TargetName>
-
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
-    <LinkIncremental>false</LinkIncremental>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|x64'">
-
     <TargetName>avfilterd</TargetName>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
-    <LinkIncremental>false</LinkIncremental>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">
-
     <TargetName>avfilter</TargetName>
-
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">
-
     <TargetName>avfilter</TargetName>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|Win32'">
-
     <TargetName>avfilter</TargetName>
-
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|x64'">
-
     <TargetName>avfilter</TargetName>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-
     <TargetName>libavfilterd</TargetName>
-
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-
     <TargetName>libavfilterd</TargetName>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-
     <TargetName>libavfilter</TargetName>
-
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-
     <TargetName>libavfilter</TargetName>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|Win32'">
-
     <TargetName>libavfilter</TargetName>
-
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|x64'">
-
     <TargetName>libavfilter</TargetName>
-
-    <OutDir>$(ProjectDir)..\msvc\</OutDir>
-
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
-
   </PropertyGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-
       <OmitFramePointers>false</OmitFramePointers>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
       <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
-
+      <MinimalRebuild>false</MinimalRebuild>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
     </ClCompile>
-
     <Lib>
-
       <TargetMachine>MachineX86</TargetMachine>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
-
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1027,95 +745,58 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-
-      <OmitFramePointers>false</OmitFramePointers>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
       <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
-
+      <MinimalRebuild>false</MinimalRebuild>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
     </ClCompile>
-
     <Lib>
-
       <TargetMachine>MachineX64</TargetMachine>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
-
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1133,107 +814,65 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-
       <OmitFramePointers>false</OmitFramePointers>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-
+      <MinimalRebuild>false</MinimalRebuild>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
     </ClCompile>
-
     <Link>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\bin\x86\$(TargetName)$(TargetExt)</OutputFile>
-
       <ImportLibrary>$(OutDir)\lib\x86\$(TargetName).lib</ImportLibrary>
-
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
-
       <ModuleDefinitionFile>.\libavfilter.def</ModuleDefinitionFile>
-
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-
       <AdditionalDependencies>avutild.lib;avcodecd.lib;avformatd.lib;swresampled.lib;postprocd.lib;swscaled.lib;%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <LargeAddressAware>true</LargeAddressAware>
-
       <GenerateDebugInformation>true</GenerateDebugInformation>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
       <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
-
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1251,105 +890,63 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-
-      <OmitFramePointers>false</OmitFramePointers>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-
+      <MinimalRebuild>false</MinimalRebuild>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
-
     </ClCompile>
-
     <Link>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
-
       <ImportLibrary>$(OutDir)\lib\x64\$(TargetName).lib</ImportLibrary>
-
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
-
       <ModuleDefinitionFile>.\libavfilter.def</ModuleDefinitionFile>
-
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-
       <AdditionalDependencies>avutild.lib;avcodecd.lib;avformatd.lib;swresampled.lib;postprocd.lib;swscaled.lib;%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <GenerateDebugInformation>true</GenerateDebugInformation>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1367,107 +964,65 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-
       <OmitFramePointers>false</OmitFramePointers>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-
+      <MinimalRebuild>false</MinimalRebuild>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
     </ClCompile>
-
     <Link>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\bin\x86\$(TargetName)$(TargetExt)</OutputFile>
-
       <ImportLibrary>$(OutDir)\lib\x86\$(TargetName).lib</ImportLibrary>
-
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
-
       <ModuleDefinitionFile>.\libavfilter.def</ModuleDefinitionFile>
-
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-
       <AdditionalDependencies>avutild.lib;avcodecd.lib;avformatd.lib;swresampled.lib;postprocd.lib;swscaled.lib;%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <LargeAddressAware>true</LargeAddressAware>
-
       <GenerateDebugInformation>true</GenerateDebugInformation>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
       <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
-
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1485,105 +1040,63 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|x64'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-
-      <OmitFramePointers>false</OmitFramePointers>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-
+      <MinimalRebuild>false</MinimalRebuild>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
     </ClCompile>
-
     <Link>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
-
       <ImportLibrary>$(OutDir)\lib\x64\$(TargetName).lib</ImportLibrary>
-
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
-
       <ModuleDefinitionFile>.\libavfilter.def</ModuleDefinitionFile>
-
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-
       <AdditionalDependencies>avutild.lib;avcodecd.lib;avformatd.lib;swresampled.lib;postprocd.lib;swscaled.lib;%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <GenerateDebugInformation>true</GenerateDebugInformation>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
-
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1601,107 +1114,64 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <FunctionLevelLinking>true</FunctionLevelLinking>
-
       <IntrinsicFunctions>true</IntrinsicFunctions>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <StringPooling>true</StringPooling>
-
       <BufferSecurityCheck>false</BufferSecurityCheck>
-
       <FloatingPointExceptions>false</FloatingPointExceptions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-
       <OmitFramePointers>true</OmitFramePointers>
-
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
-
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
     </ClCompile>
-
     <Lib>
-
       <TargetMachine>MachineX86</TargetMachine>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
-
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1719,107 +1189,62 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <FunctionLevelLinking>true</FunctionLevelLinking>
-
       <IntrinsicFunctions>true</IntrinsicFunctions>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <StringPooling>true</StringPooling>
-
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-
-      <FloatingPointExceptions>false</FloatingPointExceptions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-
       <OmitFramePointers>true</OmitFramePointers>
-
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
-
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
     </ClCompile>
-
     <Lib>
-
       <TargetMachine>MachineX64</TargetMachine>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
-
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1837,123 +1262,70 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <FunctionLevelLinking>true</FunctionLevelLinking>
-
       <IntrinsicFunctions>true</IntrinsicFunctions>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <StringPooling>true</StringPooling>
-
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-
-      <FloatingPointExceptions>false</FloatingPointExceptions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-
       <OmitFramePointers>true</OmitFramePointers>
-
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
       <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
-
     </ClCompile>
-
     <Link>
-
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-
       <OptimizeReferences>true</OptimizeReferences>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\bin\x86\$(TargetName)$(TargetExt)</OutputFile>
-
       <ImportLibrary>$(OutDir)\lib\x86\$(TargetName).lib</ImportLibrary>
-
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
-
       <ModuleDefinitionFile>.\libavfilter.def</ModuleDefinitionFile>
-
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-
       <AdditionalDependencies>avutil.lib;avcodec.lib;avformat.lib;swresample.lib;postproc.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <LargeAddressAware>true</LargeAddressAware>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
       <GenerateDebugInformation>true</GenerateDebugInformation>
-
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -1971,121 +1343,69 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <FunctionLevelLinking>true</FunctionLevelLinking>
-
       <IntrinsicFunctions>true</IntrinsicFunctions>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <StringPooling>true</StringPooling>
-
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-
-      <FloatingPointExceptions>false</FloatingPointExceptions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-
       <OmitFramePointers>true</OmitFramePointers>
-
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
-
     </ClCompile>
-
     <Link>
-
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-
       <OptimizeReferences>true</OptimizeReferences>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
-
       <ImportLibrary>$(OutDir)\lib\x64\$(TargetName).lib</ImportLibrary>
-
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
-
       <ModuleDefinitionFile>.\libavfilter.def</ModuleDefinitionFile>
-
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-
       <AdditionalDependencies>avutil.lib;avcodec.lib;avformat.lib;swresample.lib;postproc.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
       <GenerateDebugInformation>true</GenerateDebugInformation>
-
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -2103,123 +1423,70 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|Win32'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <FunctionLevelLinking>true</FunctionLevelLinking>
-
       <IntrinsicFunctions>true</IntrinsicFunctions>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <StringPooling>true</StringPooling>
-
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-
-      <FloatingPointExceptions>false</FloatingPointExceptions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-
       <OmitFramePointers>true</OmitFramePointers>
-
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
       <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
-
     </ClCompile>
-
     <Link>
-
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-
       <OptimizeReferences>true</OptimizeReferences>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\bin\x86\$(TargetName)$(TargetExt)</OutputFile>
-
       <ImportLibrary>$(OutDir)\lib\x86\$(TargetName).lib</ImportLibrary>
-
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
-
       <ModuleDefinitionFile>.\libavfilter.def</ModuleDefinitionFile>
-
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-
       <AdditionalDependencies>avutil.lib;avcodec.lib;avformat.lib;swresample.lib;postproc.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <LargeAddressAware>true</LargeAddressAware>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
       <GenerateDebugInformation>true</GenerateDebugInformation>
-
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -2237,121 +1504,69 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|x64'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <FunctionLevelLinking>true</FunctionLevelLinking>
-
       <IntrinsicFunctions>true</IntrinsicFunctions>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <StringPooling>true</StringPooling>
-
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-
-      <FloatingPointExceptions>false</FloatingPointExceptions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-
       <OmitFramePointers>true</OmitFramePointers>
-
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
-
     </ClCompile>
-
     <Link>
-
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-
       <OptimizeReferences>true</OptimizeReferences>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
-
       <ImportLibrary>$(OutDir)\lib\x64\$(TargetName).lib</ImportLibrary>
-
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
-
       <ModuleDefinitionFile>.\libavfilter.def</ModuleDefinitionFile>
-
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-
       <AdditionalDependencies>avutil.lib;avcodec.lib;avformat.lib;swresample.lib;postproc.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
       <GenerateDebugInformation>true</GenerateDebugInformation>
-
     </Link>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -2369,107 +1584,62 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|Win32'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <FunctionLevelLinking>true</FunctionLevelLinking>
-
       <IntrinsicFunctions>true</IntrinsicFunctions>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <StringPooling>true</StringPooling>
-
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-
-      <FloatingPointExceptions>false</FloatingPointExceptions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-
       <OmitFramePointers>true</OmitFramePointers>
-
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
-
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
     </ClCompile>
-
     <Lib>
-
       <TargetMachine>MachineX86</TargetMachine>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
-
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -2487,107 +1657,62 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|x64'">
-
     <ClCompile>
-
       <WarningLevel>Level3</WarningLevel>
-
       <FunctionLevelLinking>true</FunctionLevelLinking>
-
       <IntrinsicFunctions>true</IntrinsicFunctions>
-
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
       <StringPooling>true</StringPooling>
-
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-
-      <FloatingPointExceptions>false</FloatingPointExceptions>
-
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-
       <OmitFramePointers>true</OmitFramePointers>
-
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
-      <ExceptionHandling>false</ExceptionHandling>
-
       <C99Support>true</C99Support>
-
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-
       <FloatingPointModel>Precise</FloatingPointModel>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 13.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 14.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler XE 15.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
-      <AdditionalOptions Condition="'$(PlatformToolset)'=='Intel C++ Compiler 16.0'">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
-
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-
     </ClCompile>
-
     <Lib>
-
       <TargetMachine>MachineX64</TargetMachine>
-
       <SubSystem>Windows</SubSystem>
-
       <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
-
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir $(OutDir)\include
-mkdir $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfilter.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\avfiltergraph.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersink.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\buffersrc.h $(OutDir)\include\libavfilter
-copy ..\libavfilter\version.h $(OutDir)\include\libavfilter
-mkdir $(OutDir)\licenses
-copy ..\COPYING.GPLv3 $(OutDir)\licenses\ffmpeg.txt</Command>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfilter.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\avfiltergraph.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersink.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\buffersrc.h "$(OutDir)"\include\libavfilter
+copy ..\libavfilter\version.h "$(OutDir)"\include\libavfilter
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>if exist ..\config.h (
@@ -2605,31 +1730,24 @@ del ..\libavutil\avconfig.h
 if exist ..\libavutil\ffversion.h (
 del ..\libavutil\ffversion.h
 )
-if exist $(OutDir)\include\libavfilter (
-rd /s /q $(OutDir)\include\libavfilter
+if exist "$(OutDir)"\include\libavfilter (
+rd /s /q "$(OutDir)"\include\libavfilter
 cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
     <YASM>
-      <IncludePaths>..\;.\;..\libavcodec;%(IncludePaths)</IncludePaths>
-      <PreIncludeFile>config.asm</PreIncludeFile>
-      <Debug>true</Debug>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </YASM>
-
     <ResourceCompile>
-
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-
     </ResourceCompile>
-
   </ItemDefinitionGroup>
-
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\vsyasm.targets" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\yasm.targets" />
   </ImportGroup>
-
 </Project>
