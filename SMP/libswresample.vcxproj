@@ -99,6 +99,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3CE4A9EF-98B6-4454-B76E-3AD9C03A2114}</ProjectGuid>
     <RootNamespace>libswresample</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

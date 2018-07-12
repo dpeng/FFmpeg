@@ -523,6 +523,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{30A96E9B-8061-4F19-BD71-FDE7EA8F7929}</ProjectGuid>
     <RootNamespace>libavformat</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

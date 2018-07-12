@@ -112,6 +112,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6D8A6330-8EBE-49FD-9281-0A396F9F28F2}</ProjectGuid>
     <RootNamespace>libswscale</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

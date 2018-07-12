@@ -46,6 +46,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4081C77E-F1F7-49FA-9BD8-A4D267C83716}</ProjectGuid>
     <RootNamespace>ffmpeg</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

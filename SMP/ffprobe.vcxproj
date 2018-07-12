@@ -42,6 +42,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{147A422A-FA63-4724-A5D9-08B1CAFDAB59}</ProjectGuid>
     <RootNamespace>ffprobe</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

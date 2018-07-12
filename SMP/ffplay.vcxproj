@@ -42,7 +42,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E2A6865D-BD68-45B4-8130-EFD620F2C7EB}</ProjectGuid>
     <RootNamespace>ffplay</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

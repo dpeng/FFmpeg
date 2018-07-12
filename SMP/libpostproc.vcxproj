@@ -78,6 +78,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4D9C457D-9ADA-4A12-9D06-42D80124C5AB}</ProjectGuid>
     <RootNamespace>libpostproc</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
