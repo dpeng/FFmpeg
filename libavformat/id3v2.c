@@ -252,7 +252,7 @@ static int decode_str(AVFormatContext *s, AVIOContext *pb, int encoding,
         av_log(s, AV_LOG_ERROR, "Error opening memory stream\n");
         return ret;
     }
-
+	/*
     switch (encoding) {
     case ID3v2_ENCODING_ISO8859:
         while (left && ch) {
@@ -289,7 +289,7 @@ static int decode_str(AVFormatContext *s, AVIOContext *pb, int encoding,
             PUT_UTF8(ch, tmp, avio_w8(dynbuf, tmp);)
         }
         if (left < 0)
-            left += 2;  /* did not read last char from pb */
+            left += 2;  //did not read last char from pb 
         break;
 
     case ID3v2_ENCODING_UTF8:
@@ -302,7 +302,7 @@ static int decode_str(AVFormatContext *s, AVIOContext *pb, int encoding,
     default:
         av_log(s, AV_LOG_WARNING, "Unknown encoding\n");
     }
-
+	*/
     if (ch)
         avio_w8(dynbuf, 0);
 
