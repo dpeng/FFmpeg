@@ -34,276 +34,282 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <YASM Include="..\libavcodec\x86\ac3dsp.asm">
+    <NASM Include="..\libavcodec\x86\ac3dsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\ac3dsp_downmix.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\ac3dsp_downmix.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\audiodsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\audiodsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\blockdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\blockdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\bswapdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\bswapdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\dct32.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\dct32.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\fft.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\fft.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\fmtconvert.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\fmtconvert.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h263_loopfilter.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h263_loopfilter.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_chromamc.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_chromamc.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_chromamc_10bit.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_chromamc_10bit.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_deblock.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_deblock.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_deblock_10bit.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_deblock_10bit.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_idct.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_idct.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_idct_10bit.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_idct_10bit.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_weight.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_weight.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_weight_10bit.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_weight_10bit.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_intrapred.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_intrapred.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_intrapred_10bit.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_intrapred_10bit.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_qpel_8bit.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_qpel_8bit.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\h264_qpel_10bit.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\h264_qpel_10bit.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\fpel.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\fpel.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\qpel.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\qpel.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\hpeldsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\hpeldsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\huffyuvdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\huffyuvdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\huffyuvencdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\huffyuvencdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\idctdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\idctdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\lossless_audiodsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\lossless_audiodsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\lossless_videodsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\lossless_videodsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\lossless_videoencdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\lossless_videoencdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\mdct15.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\mdct15.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\me_cmp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\me_cmp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\imdct36.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\imdct36.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\mpegvideoencdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\mpegvideoencdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\opus_pvq_search.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\opus_pvq_search.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\pixblockdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\pixblockdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\qpeldsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\qpeldsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\rv34dsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\rv34dsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vc1dsp_loopfilter.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vc1dsp_loopfilter.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vc1dsp_mc.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vc1dsp_mc.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\simple_idct10.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\simple_idct10.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\simple_idct.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\simple_idct.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\videodsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\videodsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp3dsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp3dsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp8dsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp8dsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp8dsp_loopfilter.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp8dsp_loopfilter.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\aacpsdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\aacpsdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\sbrdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\sbrdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\aacencdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\aacencdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\g722dsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\g722dsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\alacdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\alacdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\cavsidct.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\cavsidct.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\dcadsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\dcadsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\synth_filter.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\synth_filter.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\diracdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\diracdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\dirac_dwt.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\dirac_dwt.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\dnxhdenc.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\dnxhdenc.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\flacdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\flacdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\flac_dsp_gpl.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\flac_dsp_gpl.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\hevc_add_res.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\hevc_add_res.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\hevc_deblock.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\hevc_deblock.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\hevc_idct.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\hevc_idct.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\hevc_mc.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\hevc_mc.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\hevc_sao.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\hevc_sao.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\hevc_sao_10bit.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\hevc_sao_10bit.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\jpeg2000dsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\jpeg2000dsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\mlpdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\mlpdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\xvididct.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\xvididct.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\proresdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\proresdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\rv40dsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\rv40dsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\svq1enc.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\sbcdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\takdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\svq1enc.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\ttadsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\takdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\ttaencdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\ttadsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\utvideodsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\ttaencdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\v210enc.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\utvideodsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\v210.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\v210enc.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vorbisdsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\v210.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\hpeldsp_vp3.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vorbisdsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp6dsp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\hpeldsp_vp3.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp9intrapred.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp6dsp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp9intrapred_16bpp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp9intrapred.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp9itxfm.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp9intrapred_16bpp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp9itxfm_16bpp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp9itxfm.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp9lpf.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp9itxfm_16bpp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp9lpf_16bpp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp9lpf.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp9mc.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp9lpf_16bpp.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
-    <YASM Include="..\libavcodec\x86\vp9mc_16bpp.asm">
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp9mc.asm">
       <Filter>Source Files\libavcodec\x86</Filter>
-    </YASM>
+    </NASM>
+    <NASM Include="..\libavcodec\x86\vp9mc_16bpp.asm">
+      <Filter>Source Files\libavcodec\x86</Filter>
+    </NASM>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\libavcodec\allcodecs.c">
+    <ClCompile Include="..\libavcodec\ac3_parser.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavcodec\audioconvert.c">
+    <ClCompile Include="..\libavcodec\adts_parser.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\allcodecs.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\avdct.c">
@@ -369,6 +375,9 @@
     <ClCompile Include="..\libavcodec\parser.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\parsers.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\profiles.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
@@ -376,12 +385,6 @@
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\raw.c">
-      <Filter>Source Files\libavcodec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavcodec\resample.c">
-      <Filter>Source Files\libavcodec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavcodec\resample2.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\utils.c">
@@ -402,10 +405,37 @@
     <ClCompile Include="..\libavcodec\ac3tab.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\adts_header.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\mpeg4audio.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\audio_frame_queue.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\cabac.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\cbs.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\cbs_av1.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\cbs_h2645.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\h2645_parse.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\cbs_jpeg.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\cbs_mpeg2.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\cbs_vp9.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\dct.c">
@@ -472,9 +502,6 @@
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\h264_parse.c">
-      <Filter>Source Files\libavcodec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavcodec\h2645_parse.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\h264_ps.c">
@@ -600,9 +627,6 @@
     <ClCompile Include="..\libavcodec\mss34dsp.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavcodec\nvenc.c">
-      <Filter>Source Files\libavcodec</Filter>
-    </ClCompile>
     <ClCompile Include="..\libavcodec\rangecoder.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
@@ -661,12 +685,6 @@
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\aacps_float.c">
-      <Filter>Source Files\libavcodec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavcodec\aacadtsdec.c">
-      <Filter>Source Files\libavcodec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavcodec\mpeg4audio.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\kbdwin.c">
@@ -813,6 +831,9 @@
     <ClCompile Include="..\libavcodec\apedec.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\aptx.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\assdec.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
@@ -847,6 +868,9 @@
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\atrac3plusdsp.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\atrac9dec.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\cyuv.c">
@@ -1317,12 +1341,6 @@
     <ClCompile Include="..\libavcodec\h264data.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavcodec\cuvid.c">
-      <Filter>Source Files\libavcodec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavcodec\nvenc_h264.c">
-      <Filter>Source Files\libavcodec</Filter>
-    </ClCompile>
     <ClCompile Include="..\libavcodec\hapdec.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
@@ -1348,9 +1366,6 @@
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\hevc_filter.c">
-      <Filter>Source Files\libavcodec</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavcodec\nvenc_hevc.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\hnm4video.c">
@@ -1389,7 +1404,13 @@
     <ClCompile Include="..\libavcodec\iff.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\ilbcdec.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\imc.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\imm4.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\indeo2.c">
@@ -1474,6 +1495,9 @@
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\magicyuv.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\magicyuvenc.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\mdec.c">
@@ -1644,6 +1668,9 @@
     <ClCompile Include="..\libavcodec\opusenc.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\opusenc_psy.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\pafaudio.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
@@ -1686,13 +1713,13 @@
     <ClCompile Include="..\libavcodec\proresdata.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavcodec\proresdec_lgpl.c">
-      <Filter>Source Files\libavcodec</Filter>
-    </ClCompile>
     <ClCompile Include="..\libavcodec\proresenc_anatoliy.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\proresenc_kostya.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\prosumer.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\psd.c">
@@ -1870,6 +1897,21 @@
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\sunrastenc.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\sbcdec.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\sbcdec_data.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\sbc.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\sbcenc.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\sbcdsp_data.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\svq1dec.c">
@@ -2253,6 +2295,9 @@
     <ClCompile Include="..\libavcodec\dxva2_vc1.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\codec2utils.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\latm_parser.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
@@ -2262,10 +2307,16 @@
     <ClCompile Include="..\libavcodec\aac_ac3_parser.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavcodec\ac3_parser.c">
+    <ClCompile Include="..\libavcodec\adx_parser.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavcodec\adx_parser.c">
+    <ClCompile Include="..\libavcodec\av1_parser.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\av1_parse.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\avs2_parser.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\bmp_parser.c">
@@ -2349,6 +2400,9 @@
     <ClCompile Include="..\libavcodec\rv34_parser.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\sbc_parser.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\sipr_parser.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
@@ -2373,6 +2427,9 @@
     <ClCompile Include="..\libavcodec\aac_adtstoasc_bsf.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\av1_metadata_bsf.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\chomp_bsf.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
@@ -2382,10 +2439,31 @@
     <ClCompile Include="..\libavcodec\dca_core_bsf.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\eac3_core_bsf.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\extract_extradata_bsf.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\filter_units_bsf.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\h264_metadata_bsf.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\h264_levels.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\h264_mp4toannexb_bsf.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\h264_redundant_pps_bsf.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\hapqa_extract_bsf.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\h265_metadata_bsf.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\hevc_mp4toannexb_bsf.c">
@@ -2409,6 +2487,9 @@
     <ClCompile Include="..\libavcodec\mp3_header_decompress_bsf.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\mpeg2_metadata_bsf.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\noise_bsf.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
@@ -2416,6 +2497,12 @@
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\remove_extradata_bsf.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\trace_headers_bsf.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavcodec\vp9_metadata_bsf.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
     <ClCompile Include="..\libavcodec\vp9_raw_reorder_bsf.c">
@@ -2592,6 +2679,9 @@
     <ClCompile Include="..\libavcodec\x86\rv40dsp_init.c">
       <Filter>Source Files\libavcodec\x86</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\x86\sbcdsp_init.c">
+      <Filter>Source Files\libavcodec\x86</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\x86\svq1enc_init.c">
       <Filter>Source Files\libavcodec\x86</Filter>
     </ClCompile>
@@ -2760,6 +2850,9 @@
     <ClCompile Include="..\libavcodec\rv40dsp.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\sbcdsp.c">
+      <Filter>Source Files\libavcodec</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\svq1enc.c">
       <Filter>Source Files\libavcodec</Filter>
     </ClCompile>
@@ -2807,6 +2900,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\libavcodec\ac3_parser.h">
+      <Filter>Header Files\libavcodec</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libavcodec\adts_parser.h">
+      <Filter>Header Files\libavcodec</Filter>
+    </ClInclude>
     <ClInclude Include="..\libavcodec\avcodec.h">
       <Filter>Header Files\libavcodec</Filter>
     </ClInclude>
@@ -2838,9 +2937,6 @@
       <Filter>Header Files\libavcodec</Filter>
     </ClInclude>
     <ClInclude Include="..\libavcodec\vaapi.h">
-      <Filter>Header Files\libavcodec</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libavcodec\vda.h">
       <Filter>Header Files\libavcodec</Filter>
     </ClInclude>
     <ClInclude Include="..\libavcodec\vdpau.h">

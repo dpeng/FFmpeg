@@ -283,6 +283,9 @@
     <ClCompile Include="..\libavformat\apngenc.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavformat\aptxdec.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavformat\aqtitledec.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
@@ -358,6 +361,9 @@
     <ClCompile Include="..\libavformat\voc.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavformat\davs2.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavformat\bethsoftvid.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
@@ -388,10 +394,7 @@
     <ClCompile Include="..\libavformat\caf.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavformat\mov.c">
-      <Filter>Source Files\libavformat</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavformat\replaygain.c">
+    <ClCompile Include="..\libavformat\mov_esds.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\cafenc.c">
@@ -409,6 +412,9 @@
     <ClCompile Include="..\libavformat\cinedec.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavformat\codec2.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavformat\concatdec.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
@@ -419,6 +425,9 @@
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\dashenc.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavformat\hlsplaylist.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\dauddec.c">
@@ -478,12 +487,6 @@
     <ClCompile Include="..\libavformat\epafdec.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavformat\ffmdec.c">
-      <Filter>Source Files\libavformat</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavformat\ffmenc.c">
-      <Filter>Source Files\libavformat</Filter>
-    </ClCompile>
     <ClCompile Include="..\libavformat\ffmetadec.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
@@ -491,6 +494,9 @@
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\fifo.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavformat\fifo_test.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\filmstripdec.c">
@@ -512,6 +518,9 @@
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\oggparsevorbis.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavformat\replaygain.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\vorbiscomment.c">
@@ -721,6 +730,9 @@
     <ClCompile Include="..\libavformat\matroskaenc.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavformat\av1.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavformat\hevc.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
@@ -755,6 +767,9 @@
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\mmf.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavformat\mov.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\movenc.c">
@@ -842,6 +857,9 @@
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\nistspheredec.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavformat\nspdec.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\nsvdec.c">
@@ -1045,6 +1063,9 @@
     <ClCompile Include="..\libavformat\sapenc.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavformat\sbcdec.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavformat\sbgdec.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
@@ -1066,7 +1087,13 @@
     <ClCompile Include="..\libavformat\segafilm.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavformat\segafilmenc.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavformat\segment.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavformat\serdec.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\shortendec.c">
@@ -1172,6 +1199,9 @@
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\tty.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavformat\ty.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\txd.c">
@@ -1336,10 +1366,16 @@
     <ClCompile Include="..\libavformat\rtmpproto.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavformat\rtmpdigest.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavformat\rtmppkt.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\rtpproto.c">
+      <Filter>Source Files\libavformat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavformat\ip.c">
       <Filter>Source Files\libavformat</Filter>
     </ClCompile>
     <ClCompile Include="..\libavformat\srtpproto.c">

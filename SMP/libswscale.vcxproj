@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="DebugDLL|Win32">
@@ -69,9 +69,10 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <YASM Include="..\libswscale\x86\input.asm" />
-    <YASM Include="..\libswscale\x86\output.asm" />
-    <YASM Include="..\libswscale\x86\scale.asm" />
+    <NASM Include="..\libswscale\x86\input.asm" />
+    <NASM Include="..\libswscale\x86\output.asm" />
+    <NASM Include="..\libswscale\x86\scale.asm" />
+    <NASM Include="..\libswscale\x86\rgb_2_rgb.asm" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\libswscale\alphablend.c" />
@@ -112,7 +113,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6D8A6330-8EBE-49FD-9281-0A396F9F28F2}</ProjectGuid>
     <RootNamespace>libswscale</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -231,7 +232,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\yasm.props" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\nasm.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -349,7 +350,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -403,11 +404,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -469,11 +470,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -482,7 +483,7 @@ cd $(ProjectDir)
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -510,7 +511,7 @@ cd $(ProjectDir)
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
@@ -542,11 +543,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -613,11 +614,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -626,7 +627,7 @@ cd $(ProjectDir)
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -654,7 +655,7 @@ cd $(ProjectDir)
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
@@ -686,11 +687,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -757,11 +758,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -772,7 +773,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FloatingPointExceptions>false</FloatingPointExceptions>
@@ -790,7 +791,6 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -830,11 +830,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -861,7 +861,6 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
@@ -901,11 +900,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -916,7 +915,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -932,7 +931,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -979,11 +978,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1056,11 +1055,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1071,7 +1070,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -1087,7 +1086,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -1134,11 +1133,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1211,11 +1210,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1226,7 +1225,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -1281,11 +1280,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1351,11 +1350,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1363,6 +1362,6 @@ cd $(ProjectDir)
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\yasm.targets" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\nasm.targets" />
   </ImportGroup>
 </Project>

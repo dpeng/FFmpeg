@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="DebugDLL|Win32">
@@ -85,7 +85,6 @@
     <ClCompile Include="..\libavdevice\sdl2.c" />
     <ClCompile Include="..\libavdevice\vfwcap.c" />
     <ClCompile Include="libavdevice\reverse_wrap.c" />
-    <ClCompile Include="libavdevice\dce_defs.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libavdevice\avdevice.h" />
@@ -94,7 +93,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6E165FA4-44EB-4330-8394-9F0D76D8E03E}</ProjectGuid>
     <RootNamespace>libavdevice</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -328,7 +327,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -349,7 +348,7 @@
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalDependencies>libsdl2d.lib;strmiids.lib;vfw32.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;$(ProjectDir)\..\depend\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
     <PostBuildEvent>
@@ -392,7 +391,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;.\..\depend\include\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;$(ProjectDir)\..\depend\include\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -409,8 +408,8 @@ cd $(ProjectDir)
       <TargetMachine>MachineX64</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>sdl2.lib;strmiids.lib;vfw32.lib;shlwapi.lib;winmm.lib;Version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;.\..\depend\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sdl2.lib;strmiids.lib;vfw32.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;$(ProjectDir)\..\depend\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
     <PostBuildEvent>
@@ -451,7 +450,7 @@ cd $(ProjectDir)
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -479,7 +478,7 @@ cd $(ProjectDir)
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
@@ -585,7 +584,7 @@ cd $(ProjectDir)
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -613,7 +612,7 @@ cd $(ProjectDir)
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
@@ -721,7 +720,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FloatingPointExceptions>false</FloatingPointExceptions>
@@ -730,7 +729,7 @@ cd $(ProjectDir)
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>true</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;.\..\depend\include\sdl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -739,14 +738,13 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>strmiids.lib;vfw32.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;.\..\depend\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libsdl2.lib;strmiids.lib;vfw32.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
     <PostBuildEvent>
@@ -796,7 +794,7 @@ cd $(ProjectDir)
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>true</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;.\..\depend\include\sdl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;$(ProjectDir)\..\depend\include\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -805,14 +803,13 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>strmiids.lib;vfw32.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;.\..\depend\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sdl2.lib;strmiids.lib;vfw32.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;$(ProjectDir)\..\depend\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
     <PostBuildEvent>
@@ -855,7 +852,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -871,7 +868,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -1000,7 +997,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -1016,7 +1013,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -1145,7 +1142,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>

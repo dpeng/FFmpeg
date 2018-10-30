@@ -20,10 +20,8 @@
  */
 
 #include "config.h"
+#include "stdint.h"
 
-#if !(CONFIG_H264_D3D11VA2_HWACCEL||CONFIG_H264_D3D11VA_HWACCEL||CONFIG_HEVC_D3D11VA2_HWACCEL||CONFIG_HEVC_D3D11VA_HWACCEL||CONFIG_MPEG2_D3D11VA2_HWACCEL||CONFIG_MPEG2_D3D11VA_HWACCEL||CONFIG_VC1_D3D11VA2_HWACCEL||CONFIG_VC1_D3D11VA_HWACCEL||CONFIG_VP9_D3D11VA2_HWACCEL||CONFIG_VP9_D3D11VA_HWACCEL||CONFIG_VP9_DXVA2_HWACCEL||CONFIG_WMV3_D3D11VA2_HWACCEL||CONFIG_WMV3_D3D11VA_HWACCEL)
-#include "libavcodec/avcodec.h"
-#endif
 #include "libavcodec/xvmc_internal.h"
 #include "libavcodec/xvididct.h"
 #include "libavcodec/wmv2dsp.h"
@@ -33,7 +31,6 @@
 #include "libavcodec/vp3dsp.h"
 #include "libavcodec/vorbisdsp.h"
 #include "libavcodec/videodsp.h"
-#include "libavcodec/vdpau_compat.h"
 #if !((HAVE_6REGS && HAVE_MMX_INLINE)||(HAVE_6REGS && HAVE_MMXEXT_INLINE))
 #include "libavcodec/x86/vc1dsp.h"
 #endif
@@ -44,6 +41,7 @@
 #include "libavcodec/x86/simple_idct.h"
 #endif
 #include "libavcodec/sbrdsp.h"
+#include "libavcodec/sbcdsp.h"
 #include "libavcodec/rv34dsp.h"
 #include "libavcodec/rdft.h"
 #include "libavcodec/qpeldsp.h"
@@ -188,6 +186,7 @@ void ff_h264qpel_init_aarch64(H264QpelContext *c, int bit_depth) {return;}
 void ff_h264qpel_init_arm(H264QpelContext *c, int bit_depth) {return;}
 void ff_h264qpel_init_mips(H264QpelContext *c, int bit_depth) {return;}
 void ff_h264qpel_init_ppc(H264QpelContext *c, int bit_depth) {return;}
+void ff_hevc_dsp_init_arm(HEVCDSPContext *c, const int bit_depth) {return;}
 void ff_hevc_dsp_init_mips(HEVCDSPContext *c, const int bit_depth) {return;}
 void ff_hevc_dsp_init_ppc(HEVCDSPContext *c, const int bit_depth) {return;}
 #if !(ARCH_X86_64)
@@ -3437,7 +3436,6 @@ void ff_hevc_v_loop_filter_luma_8_sse2(uint8_t *pix, ptrdiff_t stride, int beta,
 #if !(ARCH_X86_64)
 void ff_hevc_v_loop_filter_luma_8_ssse3(uint8_t *pix, ptrdiff_t stride, int beta, int *tc, uint8_t *no_p, uint8_t *no_q) {return;}
 #endif
-void ff_hevcdsp_init_arm(HEVCDSPContext *c, const int bit_depth) {return;}
 void ff_hpeldsp_init_aarch64(HpelDSPContext *c, int flags) {return;}
 void ff_hpeldsp_init_alpha(HpelDSPContext *c, int flags) {return;}
 void ff_hpeldsp_init_arm(HpelDSPContext *c, int flags) {return;}
@@ -3510,6 +3508,7 @@ void ff_rv34_idct_dc_add_mmx(uint8_t *dst, ptrdiff_t stride, int dc) {return;}
 void ff_rv34dsp_init_arm(RV34DSPContext *c) {return;}
 void ff_rv40dsp_init_aarch64(RV34DSPContext *c) {return;}
 void ff_rv40dsp_init_arm(RV34DSPContext *c) {return;}
+void ff_sbcdsp_init_arm(SBCDSPContext *s) {return;}
 void ff_sbrdsp_init_aarch64(SBRDSPContext *s) {return;}
 void ff_sbrdsp_init_arm(SBRDSPContext *s) {return;}
 void ff_sbrdsp_init_mips(SBRDSPContext *s) {return;}
@@ -3568,17 +3567,6 @@ void ff_vc1dsp_init_mmx(VC1DSPContext *dsp) {return;}
 void ff_vc1dsp_init_mmxext(VC1DSPContext *dsp) {return;}
 #endif
 void ff_vc1dsp_init_ppc(VC1DSPContext *c) {return;}
-void ff_vdpau_add_data_chunk(uint8_t *data, const uint8_t *buf,
-                             int buf_size) {return;}
-void ff_vdpau_h264_picture_complete(H264Context *h) {return;}
-void ff_vdpau_h264_picture_start(H264Context *h) {return;}
-void ff_vdpau_h264_set_reference_frames(H264Context *h) {return;}
-void ff_vdpau_mpeg4_decode_picture(Mpeg4DecContext *s, const uint8_t *buf,
-                                   int buf_size) {return;}
-void ff_vdpau_mpeg_picture_complete(MpegEncContext *s, const uint8_t *buf,
-                                    int buf_size, int slice_count) {return;}
-void ff_vdpau_vc1_decode_picture(MpegEncContext *s, const uint8_t *buf,
-                                 int buf_size) {return;}
 void ff_videodsp_init_aarch64(VideoDSPContext *ctx, int bpc) {return;}
 void ff_videodsp_init_arm(VideoDSPContext *ctx, int bpc) {return;}
 void ff_videodsp_init_mips(VideoDSPContext *ctx, int bpc) {return;}
@@ -3616,207 +3604,3 @@ void ff_xvid_idct_init_mips(IDCTDSPContext *c, AVCodecContext *avctx,
                             unsigned high_bit_depth) {return;}
 void ff_xvmc_init_block(MpegEncContext *s) {return;}
 void ff_xvmc_pack_pblocks(MpegEncContext *s, int cbp) {return;}
-const AVCodec ff_aac_at_decoder = {0};
-const AVCodec ff_aac_at_encoder = {0};
-const AVCodec ff_ac3_at_decoder = {0};
-const AVCodec ff_adpcm_ima_qt_at_decoder = {0};
-const AVCodec ff_alac_at_decoder = {0};
-const AVCodec ff_alac_at_encoder = {0};
-const AVCodec ff_amr_nb_at_decoder = {0};
-const AVCodec ff_apng_decoder = {0};
-const AVCodec ff_apng_encoder = {0};
-const AVCodec ff_dxa_decoder = {0};
-const AVCodec ff_eac3_at_decoder = {0};
-const AVCodec ff_exr_decoder = {0};
-const AVCodec ff_flashsv2_decoder = {0};
-const AVCodec ff_flashsv2_encoder = {0};
-const AVCodec ff_flashsv_decoder = {0};
-const AVCodec ff_flashsv_encoder = {0};
-const AVCodec ff_g2m_decoder = {0};
-const AVCodec ff_gsm_ms_at_decoder = {0};
-const AVCodec ff_h264_crystalhd_decoder = {0};
-const AVCodec ff_h264_mediacodec_decoder = {0};
-const AVCodec ff_h264_mmal_decoder = {0};
-const AVCodec ff_h264_omx_encoder = {0};
-const AVCodec ff_h264_qsv_decoder = {0};
-const AVCodec ff_h264_qsv_encoder = {0};
-const AVCodec ff_h264_vaapi_encoder = {0};
-const AVCodec ff_h264_vda_decoder = {0};
-const AVCodec ff_h264_vdpau_decoder = {0};
-const AVCodec ff_h264_videotoolbox_encoder = {0};
-const AVCodec ff_hap_encoder = {0};
-const AVCodec ff_hevc_mediacodec_decoder = {0};
-const AVCodec ff_hevc_qsv_decoder = {0};
-const AVCodec ff_hevc_qsv_encoder = {0};
-const AVCodec ff_hevc_vaapi_encoder = {0};
-const AVCodec ff_ilbc_at_decoder = {0};
-const AVCodec ff_ilbc_at_encoder = {0};
-const AVCodec ff_libcelt_decoder = {0};
-const AVCodec ff_libfdk_aac_decoder = {0};
-const AVCodec ff_libfdk_aac_encoder = {0};
-const AVCodec ff_libgsm_decoder = {0};
-const AVCodec ff_libgsm_encoder = {0};
-const AVCodec ff_libgsm_ms_decoder = {0};
-const AVCodec ff_libgsm_ms_encoder = {0};
-const AVCodec ff_libilbc_decoder = {0};
-const AVCodec ff_libilbc_encoder = {0};
-const AVCodec ff_libkvazaar_encoder = {0};
-const AVCodec ff_libmp3lame_encoder = {0};
-const AVCodec ff_libopencore_amrnb_decoder = {0};
-const AVCodec ff_libopencore_amrnb_encoder = {0};
-const AVCodec ff_libopencore_amrwb_decoder = {0};
-const AVCodec ff_libopenh264_decoder = {0};
-const AVCodec ff_libopenh264_encoder = {0};
-const AVCodec ff_libopenjpeg_decoder = {0};
-const AVCodec ff_libopenjpeg_encoder = {0};
-const AVCodec ff_libopus_decoder = {0};
-const AVCodec ff_libopus_encoder = {0};
-const AVCodec ff_librsvg_decoder = {0};
-const AVCodec ff_libshine_encoder = {0};
-const AVCodec ff_libspeex_decoder = {0};
-const AVCodec ff_libspeex_encoder = {0};
-const AVCodec ff_libtheora_encoder = {0};
-const AVCodec ff_libtwolame_encoder = {0};
-const AVCodec ff_libvo_amrwbenc_encoder = {0};
-const AVCodec ff_libvorbis_decoder = {0};
-const AVCodec ff_libvorbis_encoder = {0};
-const AVCodec ff_libvpx_vp8_decoder = {0};
-const AVCodec ff_libvpx_vp8_encoder = {0};
-const AVCodec ff_libvpx_vp9_decoder = {0};
-const AVCodec ff_libvpx_vp9_encoder = {0};
-const AVCodec ff_libwavpack_encoder = {0};
-const AVCodec ff_libwebp_anim_encoder = {0};
-const AVCodec ff_libwebp_encoder = {0};
-const AVCodec ff_libx262_encoder = {0};
-const AVCodec ff_libx264_encoder = {0};
-const AVCodec ff_libx264rgb_encoder = {0};
-const AVCodec ff_libx265_encoder = {0};
-const AVCodec ff_libxavs_encoder = {0};
-const AVCodec ff_libxvid_encoder = {0};
-const AVCodec ff_libzvbi_teletext_decoder = {0};
-const AVCodec ff_mjpeg_vaapi_encoder = {0};
-const AVCodec ff_mp1_at_decoder = {0};
-const AVCodec ff_mp2_at_decoder = {0};
-const AVCodec ff_mp3_at_decoder = {0};
-const AVCodec ff_mpeg1_vdpau_decoder = {0};
-const AVCodec ff_mpeg2_crystalhd_decoder = {0};
-const AVCodec ff_mpeg2_mediacodec_decoder = {0};
-const AVCodec ff_mpeg2_mmal_decoder = {0};
-const AVCodec ff_mpeg2_qsv_decoder = {0};
-const AVCodec ff_mpeg2_qsv_encoder = {0};
-const AVCodec ff_mpeg2_vaapi_encoder = {0};
-const AVCodec ff_mpeg4_crystalhd_decoder = {0};
-const AVCodec ff_mpeg4_mediacodec_decoder = {0};
-const AVCodec ff_mpeg4_mmal_decoder = {0};
-const AVCodec ff_mpeg4_vdpau_decoder = {0};
-const AVCodec ff_mpeg_vdpau_decoder = {0};
-const AVCodec ff_mpeg_xvmc_decoder = {0};
-const AVCodec ff_mscc_decoder = {0};
-const AVCodec ff_msmpeg4_crystalhd_decoder = {0};
-const AVCodec ff_pcm_alaw_at_decoder = {0};
-const AVCodec ff_pcm_alaw_at_encoder = {0};
-const AVCodec ff_pcm_mulaw_at_decoder = {0};
-const AVCodec ff_pcm_mulaw_at_encoder = {0};
-const AVCodec ff_png_decoder = {0};
-const AVCodec ff_png_encoder = {0};
-const AVCodec ff_qdm2_at_decoder = {0};
-const AVCodec ff_qdmc_at_decoder = {0};
-const AVCodec ff_rscc_decoder = {0};
-const AVCodec ff_screenpresso_decoder = {0};
-const AVCodec ff_srgc_decoder = {0};
-const AVCodec ff_tdsc_decoder = {0};
-const AVCodec ff_tscc_decoder = {0};
-const AVCodec ff_vc1_crystalhd_decoder = {0};
-const AVCodec ff_vc1_mmal_decoder = {0};
-const AVCodec ff_vc1_qsv_decoder = {0};
-const AVCodec ff_vc1_vdpau_decoder = {0};
-const AVCodec ff_vp8_mediacodec_decoder = {0};
-const AVCodec ff_vp8_qsv_decoder = {0};
-const AVCodec ff_vp8_vaapi_encoder = {0};
-const AVCodec ff_vp9_mediacodec_decoder = {0};
-const AVCodec ff_vp9_vaapi_encoder = {0};
-const AVCodec ff_wmv3_crystalhd_decoder = {0};
-const AVCodec ff_wmv3_vdpau_decoder = {0};
-const AVCodec ff_zerocodec_decoder = {0};
-const AVCodec ff_zlib_decoder = {0};
-const AVCodec ff_zlib_encoder = {0};
-const AVCodec ff_zmbv_decoder = {0};
-const AVCodec ff_zmbv_encoder = {0};
-const AVHWAccel ff_h263_vaapi_hwaccel = {0};
-const AVHWAccel ff_h263_videotoolbox_hwaccel = {0};
-#if !(CONFIG_H264_D3D11VA2_HWACCEL)
-const AVHWAccel ff_h264_d3d11va2_hwaccel = {0};
-#endif
-#if !(CONFIG_H264_D3D11VA_HWACCEL)
-const AVHWAccel ff_h264_d3d11va_hwaccel = {0};
-#endif
-const AVHWAccel ff_h264_mediacodec_hwaccel = {0};
-const AVHWAccel ff_h264_mmal_hwaccel = {0};
-const AVHWAccel ff_h264_qsv_hwaccel = {0};
-const AVHWAccel ff_h264_vaapi_hwaccel = {0};
-const AVHWAccel ff_h264_vda_hwaccel = {0};
-const AVHWAccel ff_h264_vda_old_hwaccel = {0};
-const AVHWAccel ff_h264_vdpau_hwaccel = {0};
-const AVHWAccel ff_h264_videotoolbox_hwaccel = {0};
-#if !(CONFIG_HEVC_D3D11VA2_HWACCEL)
-const AVHWAccel ff_hevc_d3d11va2_hwaccel = {0};
-#endif
-#if !(CONFIG_HEVC_D3D11VA_HWACCEL)
-const AVHWAccel ff_hevc_d3d11va_hwaccel = {0};
-#endif
-const AVHWAccel ff_hevc_mediacodec_hwaccel = {0};
-const AVHWAccel ff_hevc_qsv_hwaccel = {0};
-const AVHWAccel ff_hevc_vaapi_hwaccel = {0};
-const AVHWAccel ff_hevc_vdpau_hwaccel = {0};
-const AVHWAccel ff_mpeg1_vdpau_hwaccel = {0};
-const AVHWAccel ff_mpeg1_videotoolbox_hwaccel = {0};
-const AVHWAccel ff_mpeg1_xvmc_hwaccel = {0};
-#if !(CONFIG_MPEG2_D3D11VA2_HWACCEL)
-const AVHWAccel ff_mpeg2_d3d11va2_hwaccel = {0};
-#endif
-#if !(CONFIG_MPEG2_D3D11VA_HWACCEL)
-const AVHWAccel ff_mpeg2_d3d11va_hwaccel = {0};
-#endif
-const AVHWAccel ff_mpeg2_mediacodec_hwaccel = {0};
-const AVHWAccel ff_mpeg2_mmal_hwaccel = {0};
-const AVHWAccel ff_mpeg2_qsv_hwaccel = {0};
-const AVHWAccel ff_mpeg2_vaapi_hwaccel = {0};
-const AVHWAccel ff_mpeg2_vdpau_hwaccel = {0};
-const AVHWAccel ff_mpeg2_videotoolbox_hwaccel = {0};
-const AVHWAccel ff_mpeg2_xvmc_hwaccel = {0};
-const AVHWAccel ff_mpeg4_mediacodec_hwaccel = {0};
-const AVHWAccel ff_mpeg4_mmal_hwaccel = {0};
-const AVHWAccel ff_mpeg4_vaapi_hwaccel = {0};
-const AVHWAccel ff_mpeg4_vdpau_hwaccel = {0};
-const AVHWAccel ff_mpeg4_videotoolbox_hwaccel = {0};
-#if !(CONFIG_VC1_D3D11VA2_HWACCEL)
-const AVHWAccel ff_vc1_d3d11va2_hwaccel = {0};
-#endif
-#if !(CONFIG_VC1_D3D11VA_HWACCEL)
-const AVHWAccel ff_vc1_d3d11va_hwaccel = {0};
-#endif
-const AVHWAccel ff_vc1_mmal_hwaccel = {0};
-const AVHWAccel ff_vc1_qsv_hwaccel = {0};
-const AVHWAccel ff_vc1_vaapi_hwaccel = {0};
-const AVHWAccel ff_vc1_vdpau_hwaccel = {0};
-const AVHWAccel ff_vp8_mediacodec_hwaccel = {0};
-const AVHWAccel ff_vp8_qsv_hwaccel = {0};
-#if !(CONFIG_VP9_D3D11VA2_HWACCEL)
-const AVHWAccel ff_vp9_d3d11va2_hwaccel = {0};
-#endif
-#if !(CONFIG_VP9_D3D11VA_HWACCEL)
-const AVHWAccel ff_vp9_d3d11va_hwaccel = {0};
-#endif
-#if !(CONFIG_VP9_DXVA2_HWACCEL)
-const AVHWAccel ff_vp9_dxva2_hwaccel = {0};
-#endif
-const AVHWAccel ff_vp9_mediacodec_hwaccel = {0};
-const AVHWAccel ff_vp9_vaapi_hwaccel = {0};
-#if !(CONFIG_WMV3_D3D11VA2_HWACCEL)
-const AVHWAccel ff_wmv3_d3d11va2_hwaccel = {0};
-#endif
-#if !(CONFIG_WMV3_D3D11VA_HWACCEL)
-const AVHWAccel ff_wmv3_d3d11va_hwaccel = {0};
-#endif
-const AVHWAccel ff_wmv3_vaapi_hwaccel = {0};
-const AVHWAccel ff_wmv3_vdpau_hwaccel = {0};

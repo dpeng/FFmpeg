@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="DebugDLL|Win32">
@@ -69,13 +69,13 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <YASM Include="..\libavutil\x86\cpuid.asm" />
-    <YASM Include="..\libavutil\x86\emms.asm" />
-    <YASM Include="..\libavutil\x86\fixed_dsp.asm" />
-    <YASM Include="..\libavutil\x86\float_dsp.asm" />
-    <YASM Include="..\libavutil\x86\imgutils.asm" />
-    <YASM Include="..\libavutil\x86\lls.asm" />
-    <YASM Include="..\libavutil\x86\pixelutils.asm" />
+    <NASM Include="..\libavutil\x86\cpuid.asm" />
+    <NASM Include="..\libavutil\x86\emms.asm" />
+    <NASM Include="..\libavutil\x86\fixed_dsp.asm" />
+    <NASM Include="..\libavutil\x86\float_dsp.asm" />
+    <NASM Include="..\libavutil\x86\imgutils.asm" />
+    <NASM Include="..\libavutil\x86\lls.asm" />
+    <NASM Include="..\libavutil\x86\pixelutils.asm" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\libavutil\adler32.c" />
@@ -97,6 +97,7 @@
     <ClCompile Include="..\libavutil\dict.c" />
     <ClCompile Include="..\libavutil\display.c" />
     <ClCompile Include="..\libavutil\downmix_info.c" />
+    <ClCompile Include="..\libavutil\encryption_info.c" />
     <ClCompile Include="..\libavutil\error.c" />
     <ClCompile Include="..\libavutil\eval.c" />
     <ClCompile Include="..\libavutil\fifo.c" />
@@ -139,7 +140,6 @@
     <ClCompile Include="..\libavutil\xga_font_data.c" />
     <ClCompile Include="..\libavutil\xtea.c" />
     <ClCompile Include="..\libavutil\tea.c" />
-    <ClCompile Include="..\libavutil\hwcontext_cuda.c" />
     <ClCompile Include="..\libavutil\hwcontext_dxva2.c" />
     <ClCompile Include="..\libavutil\lzo.c" />
     <ClCompile Include="..\compat\msvcrt\snprintf.c" />
@@ -195,6 +195,7 @@
     <ClInclude Include="..\libavutil\dict.h" />
     <ClInclude Include="..\libavutil\display.h" />
     <ClInclude Include="..\libavutil\downmix_info.h" />
+    <ClInclude Include="..\libavutil\encryption_info.h" />
     <ClInclude Include="..\libavutil\error.h" />
     <ClInclude Include="..\libavutil\eval.h" />
     <ClInclude Include="..\libavutil\fifo.h" />
@@ -208,6 +209,7 @@
     <ClInclude Include="..\libavutil\hwcontext_drm.h" />
     <ClInclude Include="..\libavutil\hwcontext_dxva2.h" />
     <ClInclude Include="..\libavutil\hwcontext_qsv.h" />
+    <ClInclude Include="..\libavutil\hwcontext_mediacodec.h" />
     <ClInclude Include="..\libavutil\hwcontext_vaapi.h" />
     <ClInclude Include="..\libavutil\hwcontext_videotoolbox.h" />
     <ClInclude Include="..\libavutil\hwcontext_vdpau.h" />
@@ -254,7 +256,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CE6C44DD-6E38-4293-8AB3-04EE28CCA972}</ProjectGuid>
     <RootNamespace>libavutil</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -373,7 +375,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\yasm.props" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\nasm.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -491,7 +493,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -511,7 +513,7 @@
       <TargetMachine>MachineX86</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
@@ -541,6 +543,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -554,6 +557,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -621,11 +625,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -653,7 +657,7 @@ cd $(ProjectDir)
       <TargetMachine>MachineX64</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
@@ -683,6 +687,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -696,6 +701,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -763,11 +769,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -776,7 +782,7 @@ cd $(ProjectDir)
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -799,12 +805,12 @@ cd $(ProjectDir)
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
       <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
@@ -832,6 +838,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -845,6 +852,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -912,11 +920,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -948,7 +956,7 @@ cd $(ProjectDir)
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
       <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
@@ -979,6 +987,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -992,6 +1001,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -1059,11 +1069,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1072,7 +1082,7 @@ cd $(ProjectDir)
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -1095,12 +1105,12 @@ cd $(ProjectDir)
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
       <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
@@ -1128,6 +1138,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -1141,6 +1152,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -1208,11 +1220,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1243,7 +1255,7 @@ cd $(ProjectDir)
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
       <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
@@ -1275,6 +1287,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -1288,6 +1301,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -1355,11 +1369,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1370,7 +1384,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FloatingPointExceptions>false</FloatingPointExceptions>
@@ -1388,13 +1402,12 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
@@ -1424,6 +1437,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -1437,6 +1451,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -1504,11 +1519,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1535,13 +1550,12 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
@@ -1571,6 +1585,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -1584,6 +1599,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -1651,11 +1667,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1666,7 +1682,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -1682,7 +1698,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -1693,7 +1709,7 @@ cd $(ProjectDir)
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
       <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
@@ -1725,6 +1741,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -1738,6 +1755,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -1805,11 +1823,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1847,7 +1865,7 @@ cd $(ProjectDir)
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
       <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -1878,6 +1896,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -1891,6 +1910,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -1958,11 +1978,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1973,7 +1993,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -1989,7 +2009,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -2000,7 +2020,7 @@ cd $(ProjectDir)
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
       <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
@@ -2032,6 +2052,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -2045,6 +2066,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -2112,11 +2134,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2154,7 +2176,7 @@ cd $(ProjectDir)
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
       <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -2185,6 +2207,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -2198,6 +2221,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -2265,11 +2289,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2280,7 +2304,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -2301,7 +2325,7 @@ cd $(ProjectDir)
       <TargetMachine>MachineX86</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
@@ -2331,6 +2355,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -2344,6 +2369,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -2411,11 +2437,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2447,7 +2473,7 @@ cd $(ProjectDir)
       <TargetMachine>MachineX64</TargetMachine>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
@@ -2477,6 +2503,7 @@ copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
@@ -2490,6 +2517,7 @@ copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
@@ -2557,11 +2585,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2569,6 +2597,6 @@ cd $(ProjectDir)
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\yasm.targets" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\nasm.targets" />
   </ImportGroup>
 </Project>

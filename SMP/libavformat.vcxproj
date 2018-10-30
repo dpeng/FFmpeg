@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="DebugDLL|Win32">
@@ -153,6 +153,7 @@
     <ClCompile Include="..\libavformat\ape.c" />
     <ClCompile Include="..\libavformat\apngdec.c" />
     <ClCompile Include="..\libavformat\apngenc.c" />
+    <ClCompile Include="..\libavformat\aptxdec.c" />
     <ClCompile Include="..\libavformat\aqtitledec.c" />
     <ClCompile Include="..\libavformat\subtitles.c" />
     <ClCompile Include="..\libavformat\asfdec_f.c" />
@@ -178,6 +179,7 @@
     <ClCompile Include="..\libavformat\voc_packet.c" />
     <ClCompile Include="..\libavformat\vocdec.c" />
     <ClCompile Include="..\libavformat\voc.c" />
+    <ClCompile Include="..\libavformat\davs2.c" />
     <ClCompile Include="..\libavformat\bethsoftvid.c" />
     <ClCompile Include="..\libavformat\bfi.c" />
     <ClCompile Include="..\libavformat\bink.c" />
@@ -188,17 +190,18 @@
     <ClCompile Include="..\libavformat\c93.c" />
     <ClCompile Include="..\libavformat\cafdec.c" />
     <ClCompile Include="..\libavformat\caf.c" />
-    <ClCompile Include="..\libavformat\mov.c" />
-    <ClCompile Include="..\libavformat\replaygain.c" />
+    <ClCompile Include="..\libavformat\mov_esds.c" />
     <ClCompile Include="..\libavformat\cafenc.c" />
     <ClCompile Include="..\libavformat\cavsvideodec.c" />
     <ClCompile Include="..\libavformat\cdg.c" />
     <ClCompile Include="..\libavformat\cdxl.c" />
     <ClCompile Include="..\libavformat\cinedec.c" />
+    <ClCompile Include="..\libavformat\codec2.c" />
     <ClCompile Include="..\libavformat\concatdec.c" />
     <ClCompile Include="..\libavformat\crcenc.c" />
     <ClCompile Include="..\libavformat\dash.c" />
     <ClCompile Include="..\libavformat\dashenc.c" />
+    <ClCompile Include="..\libavformat\hlsplaylist.c" />
     <ClCompile Include="..\libavformat\dauddec.c" />
     <ClCompile Include="..\libavformat\daudenc.c" />
     <ClCompile Include="..\libavformat\dcstr.c" />
@@ -218,11 +221,10 @@
     <ClCompile Include="..\libavformat\eacdata.c" />
     <ClCompile Include="..\libavformat\electronicarts.c" />
     <ClCompile Include="..\libavformat\epafdec.c" />
-    <ClCompile Include="..\libavformat\ffmdec.c" />
-    <ClCompile Include="..\libavformat\ffmenc.c" />
     <ClCompile Include="..\libavformat\ffmetadec.c" />
     <ClCompile Include="..\libavformat\ffmetaenc.c" />
     <ClCompile Include="..\libavformat\fifo.c" />
+    <ClCompile Include="..\libavformat\fifo_test.c" />
     <ClCompile Include="..\libavformat\filmstripdec.c" />
     <ClCompile Include="..\libavformat\filmstripenc.c" />
     <ClCompile Include="..\libavformat\fitsdec.c" />
@@ -230,6 +232,7 @@
     <ClCompile Include="..\libavformat\flacdec.c" />
     <ClCompile Include="..\libavformat\flac_picture.c" />
     <ClCompile Include="..\libavformat\oggparsevorbis.c" />
+    <ClCompile Include="..\libavformat\replaygain.c" />
     <ClCompile Include="..\libavformat\vorbiscomment.c" />
     <ClCompile Include="..\libavformat\flacenc.c" />
     <ClCompile Include="..\libavformat\flacenc_header.c" />
@@ -299,6 +302,7 @@
     <ClCompile Include="..\libavformat\matroskadec.c" />
     <ClCompile Include="..\libavformat\matroska.c" />
     <ClCompile Include="..\libavformat\matroskaenc.c" />
+    <ClCompile Include="..\libavformat\av1.c" />
     <ClCompile Include="..\libavformat\hevc.c" />
     <ClCompile Include="..\libavformat\wv.c" />
     <ClCompile Include="..\libavformat\webmdashenc.c" />
@@ -311,6 +315,7 @@
     <ClCompile Include="..\libavformat\mlvdec.c" />
     <ClCompile Include="..\libavformat\mm.c" />
     <ClCompile Include="..\libavformat\mmf.c" />
+    <ClCompile Include="..\libavformat\mov.c" />
     <ClCompile Include="..\libavformat\movenc.c" />
     <ClCompile Include="..\libavformat\vpcc.c" />
     <ClCompile Include="..\libavformat\movenchint.c" />
@@ -340,6 +345,7 @@
     <ClCompile Include="..\libavformat\mxg.c" />
     <ClCompile Include="..\libavformat\ncdec.c" />
     <ClCompile Include="..\libavformat\nistspheredec.c" />
+    <ClCompile Include="..\libavformat\nspdec.c" />
     <ClCompile Include="..\libavformat\nsvdec.c" />
     <ClCompile Include="..\libavformat\nullenc.c" />
     <ClCompile Include="..\libavformat\nutdec.c" />
@@ -407,6 +413,7 @@
     <ClCompile Include="..\libavformat\samidec.c" />
     <ClCompile Include="..\libavformat\sapdec.c" />
     <ClCompile Include="..\libavformat\sapenc.c" />
+    <ClCompile Include="..\libavformat\sbcdec.c" />
     <ClCompile Include="..\libavformat\sbgdec.c" />
     <ClCompile Include="..\libavformat\sccdec.c" />
     <ClCompile Include="..\libavformat\sccenc.c" />
@@ -414,7 +421,9 @@
     <ClCompile Include="..\libavformat\sdsdec.c" />
     <ClCompile Include="..\libavformat\sdxdec.c" />
     <ClCompile Include="..\libavformat\segafilm.c" />
+    <ClCompile Include="..\libavformat\segafilmenc.c" />
     <ClCompile Include="..\libavformat\segment.c" />
+    <ClCompile Include="..\libavformat\serdec.c" />
     <ClCompile Include="..\libavformat\shortendec.c" />
     <ClCompile Include="..\libavformat\siff.c" />
     <ClCompile Include="..\libavformat\smacker.c" />
@@ -450,6 +459,7 @@
     <ClCompile Include="..\libavformat\tta.c" />
     <ClCompile Include="..\libavformat\ttaenc.c" />
     <ClCompile Include="..\libavformat\tty.c" />
+    <ClCompile Include="..\libavformat\ty.c" />
     <ClCompile Include="..\libavformat\txd.c" />
     <ClCompile Include="..\libavformat\uncodedframecrcenc.c" />
     <ClCompile Include="..\libavformat\v210.c" />
@@ -504,8 +514,10 @@
     <ClCompile Include="..\libavformat\mmst.c" />
     <ClCompile Include="..\libavformat\prompeg.c" />
     <ClCompile Include="..\libavformat\rtmpproto.c" />
+    <ClCompile Include="..\libavformat\rtmpdigest.c" />
     <ClCompile Include="..\libavformat\rtmppkt.c" />
     <ClCompile Include="..\libavformat\rtpproto.c" />
+    <ClCompile Include="..\libavformat\ip.c" />
     <ClCompile Include="..\libavformat\srtpproto.c" />
     <ClCompile Include="..\libavformat\subfile.c" />
     <ClCompile Include="..\libavformat\teeproto.c" />
@@ -523,7 +535,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{30A96E9B-8061-4F19-BD71-FDE7EA8F7929}</ProjectGuid>
     <RootNamespace>libavformat</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -757,7 +769,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -882,7 +894,7 @@ cd $(ProjectDir)
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -910,7 +922,7 @@ cd $(ProjectDir)
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
@@ -1018,7 +1030,7 @@ cd $(ProjectDir)
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -1046,7 +1058,7 @@ cd $(ProjectDir)
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
@@ -1156,7 +1168,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FloatingPointExceptions>false</FloatingPointExceptions>
@@ -1174,7 +1186,6 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -1241,7 +1252,6 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
@@ -1292,7 +1302,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -1308,7 +1318,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -1439,7 +1449,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -1455,7 +1465,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -1586,7 +1596,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>

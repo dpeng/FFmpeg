@@ -70,7 +70,7 @@ static void * attribute_align_arg worker(void *v){
         AVFrame *frame;
         Task task;
 
-        if(!pkt) pkt= av_mallocz(sizeof(*pkt));
+        if(!pkt) pkt = av_packet_alloc();
         if(!pkt) continue;
         av_init_packet(pkt);
 
@@ -92,7 +92,7 @@ static void * attribute_align_arg worker(void *v){
         pthread_mutex_unlock(&c->buffer_mutex);
         av_frame_free(&frame);
         if(got_packet) {
-            int ret2 = av_dup_packet(pkt);
+            int ret2 = av_packet_make_refcounted(pkt);
             if (ret >= 0 && ret2 < 0)
                 ret = ret2;
         } else {
@@ -193,13 +193,14 @@ int ff_frame_thread_encoder_init(AVCodecContext *avctx, AVDictionary *options){
 
     for(i=0; i<avctx->thread_count ; i++){
         AVDictionary *tmp = NULL;
+        int ret;
         void *tmpv;
         AVCodecContext *thread_avctx = avcodec_alloc_context3(avctx->codec);
         if(!thread_avctx)
             goto fail;
         tmpv = thread_avctx->priv_data;
         *thread_avctx = *avctx;
-        int ret = av_opt_copy(thread_avctx, avctx);
+        ret = av_opt_copy(thread_avctx, avctx);
         if (ret < 0)
             goto fail;
         thread_avctx->priv_data = tmpv;
@@ -248,6 +249,23 @@ void ff_frame_thread_encoder_free(AVCodecContext *avctx){
 
     for (i=0; i<avctx->thread_count; i++) {
          pthread_join(c->worker[i], NULL);
+    }
+
+    while (av_fifo_size(c->task_fifo) > 0) {
+        Task task;
+        AVFrame *frame;
+        av_fifo_generic_read(c->task_fifo, &task, sizeof(task), NULL);
+        frame = task.indata;
+        av_frame_free(&frame);
+        task.indata = NULL;
+    }
+
+    for (i=0; i<BUFFER_SIZE; i++) {
+        if (c->finished_tasks[i].outdata != NULL) {
+            AVPacket *pkt = c->finished_tasks[i].outdata;
+            av_packet_free(&pkt);
+            c->finished_tasks[i].outdata = NULL;
+        }
     }
 
     pthread_mutex_destroy(&c->task_fifo_mutex);

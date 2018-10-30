@@ -11,6 +11,7 @@ EXPORTS
     av_aes_ctr_get_iv
     av_aes_ctr_increment_iv
     av_aes_ctr_init
+    av_aes_ctr_set_full_iv
     av_aes_ctr_set_iv
     av_aes_ctr_set_random_iv
     av_aes_init
@@ -71,17 +72,23 @@ EXPORTS
     av_cast5_crypt2
     av_cast5_init
     av_channel_layout_extract_channel
+    av_chroma_location_from_name
     av_chroma_location_name
     av_cmp_i
+    av_color_primaries_from_name
     av_color_primaries_name
+    av_color_range_from_name
     av_color_range_name
+    av_color_space_from_name
     av_color_space_name
+    av_color_transfer_from_name
     av_color_transfer_name
     av_compare_mod
     av_compare_ts
     av_content_light_metadata_alloc
     av_content_light_metadata_create_side_data
     av_cpu_count
+    av_cpu_max_align
     av_crc
     av_crc_get_table
     av_crc_init
@@ -111,6 +118,15 @@ EXPORTS
     av_dynarray2_add
     av_dynarray_add
     av_dynarray_add_nofree
+    av_encryption_info_add_side_data
+    av_encryption_info_alloc
+    av_encryption_info_clone
+    av_encryption_info_free
+    av_encryption_info_get_side_data
+    av_encryption_init_info_add_side_data
+    av_encryption_init_info_alloc
+    av_encryption_init_info_free
+    av_encryption_init_info_get_side_data
     av_escape
     av_expr_eval
     av_expr_free
@@ -166,6 +182,7 @@ EXPORTS
     av_frame_make_writable
     av_frame_move_ref
     av_frame_new_side_data
+    av_frame_new_side_data_from_buf
     av_frame_ref
     av_frame_remove_side_data
     av_frame_set_best_effort_timestamp
@@ -286,7 +303,9 @@ EXPORTS
     av_log_set_level
     av_lzo1x_decode
     av_malloc
+    av_malloc_array
     av_mallocz
+    av_mallocz_array
     av_mastering_display_metadata_alloc
     av_mastering_display_metadata_create_side_data
     av_match_list
@@ -442,6 +461,7 @@ EXPORTS
     av_thread_message_flush
     av_thread_message_queue_alloc
     av_thread_message_queue_free
+    av_thread_message_queue_nb_elems
     av_thread_message_queue_recv
     av_thread_message_queue_send
     av_thread_message_queue_set_err_recv
@@ -479,7 +499,6 @@ EXPORTS
     avpriv_dict_set_timestamp
     avpriv_emms_asm
     avpriv_float_dsp_alloc
-    avpriv_frame_get_metadatap
     avpriv_get_gamma_from_trc
     avpriv_get_trc_function_from_trc
     avpriv_init_lls

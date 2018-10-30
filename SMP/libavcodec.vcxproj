@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="DebugDLL|Win32">
@@ -69,98 +69,100 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <YASM Include="..\libavcodec\x86\ac3dsp.asm" />
-    <YASM Include="..\libavcodec\x86\ac3dsp_downmix.asm" />
-    <YASM Include="..\libavcodec\x86\audiodsp.asm" />
-    <YASM Include="..\libavcodec\x86\blockdsp.asm" />
-    <YASM Include="..\libavcodec\x86\bswapdsp.asm" />
-    <YASM Include="..\libavcodec\x86\dct32.asm" />
-    <YASM Include="..\libavcodec\x86\fft.asm" />
-    <YASM Include="..\libavcodec\x86\fmtconvert.asm" />
-    <YASM Include="..\libavcodec\x86\h263_loopfilter.asm" />
-    <YASM Include="..\libavcodec\x86\h264_chromamc.asm" />
-    <YASM Include="..\libavcodec\x86\h264_chromamc_10bit.asm" />
-    <YASM Include="..\libavcodec\x86\h264_deblock.asm" />
-    <YASM Include="..\libavcodec\x86\h264_deblock_10bit.asm" />
-    <YASM Include="..\libavcodec\x86\h264_idct.asm" />
-    <YASM Include="..\libavcodec\x86\h264_idct_10bit.asm" />
-    <YASM Include="..\libavcodec\x86\h264_weight.asm" />
-    <YASM Include="..\libavcodec\x86\h264_weight_10bit.asm" />
-    <YASM Include="..\libavcodec\x86\h264_intrapred.asm" />
-    <YASM Include="..\libavcodec\x86\h264_intrapred_10bit.asm" />
-    <YASM Include="..\libavcodec\x86\h264_qpel_8bit.asm" />
-    <YASM Include="..\libavcodec\x86\h264_qpel_10bit.asm" />
-    <YASM Include="..\libavcodec\x86\fpel.asm" />
-    <YASM Include="..\libavcodec\x86\qpel.asm" />
-    <YASM Include="..\libavcodec\x86\hpeldsp.asm" />
-    <YASM Include="..\libavcodec\x86\huffyuvdsp.asm" />
-    <YASM Include="..\libavcodec\x86\huffyuvencdsp.asm" />
-    <YASM Include="..\libavcodec\x86\idctdsp.asm" />
-    <YASM Include="..\libavcodec\x86\lossless_audiodsp.asm" />
-    <YASM Include="..\libavcodec\x86\lossless_videodsp.asm" />
-    <YASM Include="..\libavcodec\x86\lossless_videoencdsp.asm" />
-    <YASM Include="..\libavcodec\x86\mdct15.asm" />
-    <YASM Include="..\libavcodec\x86\me_cmp.asm" />
-    <YASM Include="..\libavcodec\x86\imdct36.asm" />
-    <YASM Include="..\libavcodec\x86\mpegvideoencdsp.asm" />
-    <YASM Include="..\libavcodec\x86\opus_pvq_search.asm" />
-    <YASM Include="..\libavcodec\x86\pixblockdsp.asm" />
-    <YASM Include="..\libavcodec\x86\qpeldsp.asm" />
-    <YASM Include="..\libavcodec\x86\rv34dsp.asm" />
-    <YASM Include="..\libavcodec\x86\vc1dsp_loopfilter.asm" />
-    <YASM Include="..\libavcodec\x86\vc1dsp_mc.asm" />
-    <YASM Include="..\libavcodec\x86\simple_idct10.asm" />
-    <YASM Include="..\libavcodec\x86\simple_idct.asm" />
-    <YASM Include="..\libavcodec\x86\videodsp.asm" />
-    <YASM Include="..\libavcodec\x86\vp3dsp.asm" />
-    <YASM Include="..\libavcodec\x86\vp8dsp.asm" />
-    <YASM Include="..\libavcodec\x86\vp8dsp_loopfilter.asm" />
-    <YASM Include="..\libavcodec\x86\aacpsdsp.asm" />
-    <YASM Include="..\libavcodec\x86\sbrdsp.asm" />
-    <YASM Include="..\libavcodec\x86\aacencdsp.asm" />
-    <YASM Include="..\libavcodec\x86\g722dsp.asm" />
-    <YASM Include="..\libavcodec\x86\alacdsp.asm" />
-    <YASM Include="..\libavcodec\x86\cavsidct.asm" />
-    <YASM Include="..\libavcodec\x86\dcadsp.asm" />
-    <YASM Include="..\libavcodec\x86\synth_filter.asm" />
-    <YASM Include="..\libavcodec\x86\diracdsp.asm" />
-    <YASM Include="..\libavcodec\x86\dirac_dwt.asm" />
-    <YASM Include="..\libavcodec\x86\dnxhdenc.asm" />
-    <YASM Include="..\libavcodec\x86\flacdsp.asm" />
-    <YASM Include="..\libavcodec\x86\flac_dsp_gpl.asm" />
-    <YASM Include="..\libavcodec\x86\hevc_add_res.asm" />
-    <YASM Include="..\libavcodec\x86\hevc_deblock.asm" />
-    <YASM Include="..\libavcodec\x86\hevc_idct.asm" />
-    <YASM Include="..\libavcodec\x86\hevc_mc.asm" />
-    <YASM Include="..\libavcodec\x86\hevc_sao.asm" />
-    <YASM Include="..\libavcodec\x86\hevc_sao_10bit.asm" />
-    <YASM Include="..\libavcodec\x86\jpeg2000dsp.asm" />
-    <YASM Include="..\libavcodec\x86\mlpdsp.asm" />
-    <YASM Include="..\libavcodec\x86\xvididct.asm" />
-    <YASM Include="..\libavcodec\x86\proresdsp.asm" />
-    <YASM Include="..\libavcodec\x86\rv40dsp.asm" />
-    <YASM Include="..\libavcodec\x86\svq1enc.asm" />
-    <YASM Include="..\libavcodec\x86\takdsp.asm" />
-    <YASM Include="..\libavcodec\x86\ttadsp.asm" />
-    <YASM Include="..\libavcodec\x86\ttaencdsp.asm" />
-    <YASM Include="..\libavcodec\x86\utvideodsp.asm" />
-    <YASM Include="..\libavcodec\x86\v210enc.asm" />
-    <YASM Include="..\libavcodec\x86\v210.asm" />
-    <YASM Include="..\libavcodec\x86\vorbisdsp.asm" />
-    <YASM Include="..\libavcodec\x86\hpeldsp_vp3.asm" />
-    <YASM Include="..\libavcodec\x86\vp6dsp.asm" />
-    <YASM Include="..\libavcodec\x86\vp9intrapred.asm" />
-    <YASM Include="..\libavcodec\x86\vp9intrapred_16bpp.asm" />
-    <YASM Include="..\libavcodec\x86\vp9itxfm.asm" />
-    <YASM Include="..\libavcodec\x86\vp9itxfm_16bpp.asm" />
-    <YASM Include="..\libavcodec\x86\vp9lpf.asm" />
-    <YASM Include="..\libavcodec\x86\vp9lpf_16bpp.asm" />
-    <YASM Include="..\libavcodec\x86\vp9mc.asm" />
-    <YASM Include="..\libavcodec\x86\vp9mc_16bpp.asm" />
+    <NASM Include="..\libavcodec\x86\ac3dsp.asm" />
+    <NASM Include="..\libavcodec\x86\ac3dsp_downmix.asm" />
+    <NASM Include="..\libavcodec\x86\audiodsp.asm" />
+    <NASM Include="..\libavcodec\x86\blockdsp.asm" />
+    <NASM Include="..\libavcodec\x86\bswapdsp.asm" />
+    <NASM Include="..\libavcodec\x86\dct32.asm" />
+    <NASM Include="..\libavcodec\x86\fft.asm" />
+    <NASM Include="..\libavcodec\x86\fmtconvert.asm" />
+    <NASM Include="..\libavcodec\x86\h263_loopfilter.asm" />
+    <NASM Include="..\libavcodec\x86\h264_chromamc.asm" />
+    <NASM Include="..\libavcodec\x86\h264_chromamc_10bit.asm" />
+    <NASM Include="..\libavcodec\x86\h264_deblock.asm" />
+    <NASM Include="..\libavcodec\x86\h264_deblock_10bit.asm" />
+    <NASM Include="..\libavcodec\x86\h264_idct.asm" />
+    <NASM Include="..\libavcodec\x86\h264_idct_10bit.asm" />
+    <NASM Include="..\libavcodec\x86\h264_weight.asm" />
+    <NASM Include="..\libavcodec\x86\h264_weight_10bit.asm" />
+    <NASM Include="..\libavcodec\x86\h264_intrapred.asm" />
+    <NASM Include="..\libavcodec\x86\h264_intrapred_10bit.asm" />
+    <NASM Include="..\libavcodec\x86\h264_qpel_8bit.asm" />
+    <NASM Include="..\libavcodec\x86\h264_qpel_10bit.asm" />
+    <NASM Include="..\libavcodec\x86\fpel.asm" />
+    <NASM Include="..\libavcodec\x86\qpel.asm" />
+    <NASM Include="..\libavcodec\x86\hpeldsp.asm" />
+    <NASM Include="..\libavcodec\x86\huffyuvdsp.asm" />
+    <NASM Include="..\libavcodec\x86\huffyuvencdsp.asm" />
+    <NASM Include="..\libavcodec\x86\idctdsp.asm" />
+    <NASM Include="..\libavcodec\x86\lossless_audiodsp.asm" />
+    <NASM Include="..\libavcodec\x86\lossless_videodsp.asm" />
+    <NASM Include="..\libavcodec\x86\lossless_videoencdsp.asm" />
+    <NASM Include="..\libavcodec\x86\mdct15.asm" />
+    <NASM Include="..\libavcodec\x86\me_cmp.asm" />
+    <NASM Include="..\libavcodec\x86\imdct36.asm" />
+    <NASM Include="..\libavcodec\x86\mpegvideoencdsp.asm" />
+    <NASM Include="..\libavcodec\x86\opus_pvq_search.asm" />
+    <NASM Include="..\libavcodec\x86\pixblockdsp.asm" />
+    <NASM Include="..\libavcodec\x86\qpeldsp.asm" />
+    <NASM Include="..\libavcodec\x86\rv34dsp.asm" />
+    <NASM Include="..\libavcodec\x86\vc1dsp_loopfilter.asm" />
+    <NASM Include="..\libavcodec\x86\vc1dsp_mc.asm" />
+    <NASM Include="..\libavcodec\x86\simple_idct10.asm" />
+    <NASM Include="..\libavcodec\x86\simple_idct.asm" />
+    <NASM Include="..\libavcodec\x86\videodsp.asm" />
+    <NASM Include="..\libavcodec\x86\vp3dsp.asm" />
+    <NASM Include="..\libavcodec\x86\vp8dsp.asm" />
+    <NASM Include="..\libavcodec\x86\vp8dsp_loopfilter.asm" />
+    <NASM Include="..\libavcodec\x86\aacpsdsp.asm" />
+    <NASM Include="..\libavcodec\x86\sbrdsp.asm" />
+    <NASM Include="..\libavcodec\x86\aacencdsp.asm" />
+    <NASM Include="..\libavcodec\x86\g722dsp.asm" />
+    <NASM Include="..\libavcodec\x86\alacdsp.asm" />
+    <NASM Include="..\libavcodec\x86\cavsidct.asm" />
+    <NASM Include="..\libavcodec\x86\dcadsp.asm" />
+    <NASM Include="..\libavcodec\x86\synth_filter.asm" />
+    <NASM Include="..\libavcodec\x86\diracdsp.asm" />
+    <NASM Include="..\libavcodec\x86\dirac_dwt.asm" />
+    <NASM Include="..\libavcodec\x86\dnxhdenc.asm" />
+    <NASM Include="..\libavcodec\x86\flacdsp.asm" />
+    <NASM Include="..\libavcodec\x86\flac_dsp_gpl.asm" />
+    <NASM Include="..\libavcodec\x86\hevc_add_res.asm" />
+    <NASM Include="..\libavcodec\x86\hevc_deblock.asm" />
+    <NASM Include="..\libavcodec\x86\hevc_idct.asm" />
+    <NASM Include="..\libavcodec\x86\hevc_mc.asm" />
+    <NASM Include="..\libavcodec\x86\hevc_sao.asm" />
+    <NASM Include="..\libavcodec\x86\hevc_sao_10bit.asm" />
+    <NASM Include="..\libavcodec\x86\jpeg2000dsp.asm" />
+    <NASM Include="..\libavcodec\x86\mlpdsp.asm" />
+    <NASM Include="..\libavcodec\x86\xvididct.asm" />
+    <NASM Include="..\libavcodec\x86\proresdsp.asm" />
+    <NASM Include="..\libavcodec\x86\rv40dsp.asm" />
+    <NASM Include="..\libavcodec\x86\sbcdsp.asm" />
+    <NASM Include="..\libavcodec\x86\svq1enc.asm" />
+    <NASM Include="..\libavcodec\x86\takdsp.asm" />
+    <NASM Include="..\libavcodec\x86\ttadsp.asm" />
+    <NASM Include="..\libavcodec\x86\ttaencdsp.asm" />
+    <NASM Include="..\libavcodec\x86\utvideodsp.asm" />
+    <NASM Include="..\libavcodec\x86\v210enc.asm" />
+    <NASM Include="..\libavcodec\x86\v210.asm" />
+    <NASM Include="..\libavcodec\x86\vorbisdsp.asm" />
+    <NASM Include="..\libavcodec\x86\hpeldsp_vp3.asm" />
+    <NASM Include="..\libavcodec\x86\vp6dsp.asm" />
+    <NASM Include="..\libavcodec\x86\vp9intrapred.asm" />
+    <NASM Include="..\libavcodec\x86\vp9intrapred_16bpp.asm" />
+    <NASM Include="..\libavcodec\x86\vp9itxfm.asm" />
+    <NASM Include="..\libavcodec\x86\vp9itxfm_16bpp.asm" />
+    <NASM Include="..\libavcodec\x86\vp9lpf.asm" />
+    <NASM Include="..\libavcodec\x86\vp9lpf_16bpp.asm" />
+    <NASM Include="..\libavcodec\x86\vp9mc.asm" />
+    <NASM Include="..\libavcodec\x86\vp9mc_16bpp.asm" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\libavcodec\ac3_parser.c" />
+    <ClCompile Include="..\libavcodec\adts_parser.c" />
     <ClCompile Include="..\libavcodec\allcodecs.c" />
-    <ClCompile Include="..\libavcodec\audioconvert.c" />
     <ClCompile Include="..\libavcodec\avdct.c" />
     <ClCompile Include="..\libavcodec\avpacket.c" />
     <ClCompile Include="..\libavcodec\avpicture.c" />
@@ -182,19 +184,27 @@
     <ClCompile Include="..\libavcodec\options.c" />
     <ClCompile Include="..\libavcodec\mjpegenc_huffman.c" />
     <ClCompile Include="..\libavcodec\parser.c" />
+    <ClCompile Include="..\libavcodec\parsers.c" />
     <ClCompile Include="..\libavcodec\profiles.c" />
     <ClCompile Include="..\libavcodec\qsv_api.c" />
     <ClCompile Include="..\libavcodec\raw.c" />
-    <ClCompile Include="..\libavcodec\resample.c" />
-    <ClCompile Include="..\libavcodec\resample2.c" />
     <ClCompile Include="..\libavcodec\utils.c" />
     <ClCompile Include="..\libavcodec\vorbis_parser.c" />
     <ClCompile Include="..\libavcodec\xiph.c" />
     <ClCompile Include="..\libavcodec\aandcttab.c" />
     <ClCompile Include="..\libavcodec\ac3.c" />
     <ClCompile Include="..\libavcodec\ac3tab.c" />
+    <ClCompile Include="..\libavcodec\adts_header.c" />
+    <ClCompile Include="..\libavcodec\mpeg4audio.c" />
     <ClCompile Include="..\libavcodec\audio_frame_queue.c" />
     <ClCompile Include="..\libavcodec\cabac.c" />
+    <ClCompile Include="..\libavcodec\cbs.c" />
+    <ClCompile Include="..\libavcodec\cbs_av1.c" />
+    <ClCompile Include="..\libavcodec\cbs_h2645.c" />
+    <ClCompile Include="..\libavcodec\h2645_parse.c" />
+    <ClCompile Include="..\libavcodec\cbs_jpeg.c" />
+    <ClCompile Include="..\libavcodec\cbs_mpeg2.c" />
+    <ClCompile Include="..\libavcodec\cbs_vp9.c" />
     <ClCompile Include="..\libavcodec\dct.c" />
     <ClCompile Include="..\libavcodec\dct32_fixed.c" />
     <ClCompile Include="..\libavcodec\dct32_float.c" />
@@ -217,7 +227,6 @@
     <ClCompile Include="..\libavcodec\h264dsp.c" />
     <ClCompile Include="..\libavcodec\h264idct.c" />
     <ClCompile Include="..\libavcodec\h264_parse.c" />
-    <ClCompile Include="..\libavcodec\h2645_parse.c" />
     <ClCompile Include="..\libavcodec\h264_ps.c" />
     <ClCompile Include="..\libavcodec\h264pred.c" />
     <ClCompile Include="..\libavcodec\h264qpel.c" />
@@ -259,7 +268,6 @@
     <ClCompile Include="..\libavcodec\motion_est.c" />
     <ClCompile Include="..\libavcodec\ratecontrol.c" />
     <ClCompile Include="..\libavcodec\mss34dsp.c" />
-    <ClCompile Include="..\libavcodec\nvenc.c" />
     <ClCompile Include="..\libavcodec\rangecoder.c" />
     <ClCompile Include="..\libavcodec\rdft.c" />
     <ClCompile Include="..\libavcodec\sinewin.c" />
@@ -280,8 +288,6 @@
     <ClCompile Include="..\libavcodec\aactab.c" />
     <ClCompile Include="..\libavcodec\aacsbr.c" />
     <ClCompile Include="..\libavcodec\aacps_float.c" />
-    <ClCompile Include="..\libavcodec\aacadtsdec.c" />
-    <ClCompile Include="..\libavcodec\mpeg4audio.c" />
     <ClCompile Include="..\libavcodec\kbdwin.c" />
     <ClCompile Include="..\libavcodec\aacpsdsp_float.c" />
     <ClCompile Include="..\libavcodec\cbrt_data.c" />
@@ -330,6 +336,7 @@
     <ClCompile Include="..\libavcodec\ansi.c" />
     <ClCompile Include="..\libavcodec\cga_data.c" />
     <ClCompile Include="..\libavcodec\apedec.c" />
+    <ClCompile Include="..\libavcodec\aptx.c" />
     <ClCompile Include="..\libavcodec\assdec.c" />
     <ClCompile Include="..\libavcodec\ass.c" />
     <ClCompile Include="..\libavcodec\assenc.c" />
@@ -342,6 +349,7 @@
     <ClCompile Include="..\libavcodec\atrac3plusdec.c" />
     <ClCompile Include="..\libavcodec\atrac3plus.c" />
     <ClCompile Include="..\libavcodec\atrac3plusdsp.c" />
+    <ClCompile Include="..\libavcodec\atrac9dec.c" />
     <ClCompile Include="..\libavcodec\cyuv.c" />
     <ClCompile Include="..\libavcodec\aura.c" />
     <ClCompile Include="..\libavcodec\avrndec.c" />
@@ -498,8 +506,6 @@
     <ClCompile Include="..\libavcodec\h264_sei.c" />
     <ClCompile Include="..\libavcodec\h264_slice.c" />
     <ClCompile Include="..\libavcodec\h264data.c" />
-    <ClCompile Include="..\libavcodec\cuvid.c" />
-    <ClCompile Include="..\libavcodec\nvenc_h264.c" />
     <ClCompile Include="..\libavcodec\hapdec.c" />
     <ClCompile Include="..\libavcodec\hap.c" />
     <ClCompile Include="..\libavcodec\hevcdec.c" />
@@ -509,7 +515,6 @@
     <ClCompile Include="..\libavcodec\hevcpred.c" />
     <ClCompile Include="..\libavcodec\hevcdsp.c" />
     <ClCompile Include="..\libavcodec\hevc_filter.c" />
-    <ClCompile Include="..\libavcodec\nvenc_hevc.c" />
     <ClCompile Include="..\libavcodec\hnm4video.c" />
     <ClCompile Include="..\libavcodec\hq_hqa.c" />
     <ClCompile Include="..\libavcodec\hq_hqadata.c" />
@@ -522,7 +527,9 @@
     <ClCompile Include="..\libavcodec\huffyuvenc.c" />
     <ClCompile Include="..\libavcodec\idcinvideo.c" />
     <ClCompile Include="..\libavcodec\iff.c" />
+    <ClCompile Include="..\libavcodec\ilbcdec.c" />
     <ClCompile Include="..\libavcodec\imc.c" />
+    <ClCompile Include="..\libavcodec\imm4.c" />
     <ClCompile Include="..\libavcodec\indeo2.c" />
     <ClCompile Include="..\libavcodec\indeo3.c" />
     <ClCompile Include="..\libavcodec\indeo4.c" />
@@ -551,6 +558,7 @@
     <ClCompile Include="..\libavcodec\m101.c" />
     <ClCompile Include="..\libavcodec\mace.c" />
     <ClCompile Include="..\libavcodec\magicyuv.c" />
+    <ClCompile Include="..\libavcodec\magicyuvenc.c" />
     <ClCompile Include="..\libavcodec\mdec.c" />
     <ClCompile Include="..\libavcodec\metasound.c" />
     <ClCompile Include="..\libavcodec\metasound_data.c" />
@@ -607,6 +615,7 @@
     <ClCompile Include="..\libavcodec\opus_silk.c" />
     <ClCompile Include="..\libavcodec\opustab.c" />
     <ClCompile Include="..\libavcodec\opusenc.c" />
+    <ClCompile Include="..\libavcodec\opusenc_psy.c" />
     <ClCompile Include="..\libavcodec\pafaudio.c" />
     <ClCompile Include="..\libavcodec\pafvideo.c" />
     <ClCompile Include="..\libavcodec\pnmdec.c" />
@@ -621,9 +630,9 @@
     <ClCompile Include="..\libavcodec\textdec.c" />
     <ClCompile Include="..\libavcodec\proresdec2.c" />
     <ClCompile Include="..\libavcodec\proresdata.c" />
-    <ClCompile Include="..\libavcodec\proresdec_lgpl.c" />
     <ClCompile Include="..\libavcodec\proresenc_anatoliy.c" />
     <ClCompile Include="..\libavcodec\proresenc_kostya.c" />
+    <ClCompile Include="..\libavcodec\prosumer.c" />
     <ClCompile Include="..\libavcodec\psd.c" />
     <ClCompile Include="..\libavcodec\ptx.c" />
     <ClCompile Include="..\libavcodec\qcelpdec.c" />
@@ -683,6 +692,11 @@
     <ClCompile Include="..\libavcodec\subviewerdec.c" />
     <ClCompile Include="..\libavcodec\sunrast.c" />
     <ClCompile Include="..\libavcodec\sunrastenc.c" />
+    <ClCompile Include="..\libavcodec\sbcdec.c" />
+    <ClCompile Include="..\libavcodec\sbcdec_data.c" />
+    <ClCompile Include="..\libavcodec\sbc.c" />
+    <ClCompile Include="..\libavcodec\sbcenc.c" />
+    <ClCompile Include="..\libavcodec\sbcdsp_data.c" />
     <ClCompile Include="..\libavcodec\svq1dec.c" />
     <ClCompile Include="..\libavcodec\svq1.c" />
     <ClCompile Include="..\libavcodec\svq13.c" />
@@ -810,11 +824,14 @@
     <ClCompile Include="..\libavcodec\dxva2_hevc.c" />
     <ClCompile Include="..\libavcodec\dxva2_mpeg2.c" />
     <ClCompile Include="..\libavcodec\dxva2_vc1.c" />
+    <ClCompile Include="..\libavcodec\codec2utils.c" />
     <ClCompile Include="..\libavcodec\latm_parser.c" />
     <ClCompile Include="..\libavcodec\aac_parser.c" />
     <ClCompile Include="..\libavcodec\aac_ac3_parser.c" />
-    <ClCompile Include="..\libavcodec\ac3_parser.c" />
     <ClCompile Include="..\libavcodec\adx_parser.c" />
+    <ClCompile Include="..\libavcodec\av1_parser.c" />
+    <ClCompile Include="..\libavcodec\av1_parse.c" />
+    <ClCompile Include="..\libavcodec\avs2_parser.c" />
     <ClCompile Include="..\libavcodec\bmp_parser.c" />
     <ClCompile Include="..\libavcodec\cavs_parser.c" />
     <ClCompile Include="..\libavcodec\cook_parser.c" />
@@ -842,6 +859,7 @@
     <ClCompile Include="..\libavcodec\opus_parser.c" />
     <ClCompile Include="..\libavcodec\pnm_parser.c" />
     <ClCompile Include="..\libavcodec\rv34_parser.c" />
+    <ClCompile Include="..\libavcodec\sbc_parser.c" />
     <ClCompile Include="..\libavcodec\sipr_parser.c" />
     <ClCompile Include="..\libavcodec\tak_parser.c" />
     <ClCompile Include="..\libavcodec\vc1_parser.c" />
@@ -850,11 +868,19 @@
     <ClCompile Include="..\libavcodec\vp9_parser.c" />
     <ClCompile Include="..\libavcodec\xma_parser.c" />
     <ClCompile Include="..\libavcodec\aac_adtstoasc_bsf.c" />
+    <ClCompile Include="..\libavcodec\av1_metadata_bsf.c" />
     <ClCompile Include="..\libavcodec\chomp_bsf.c" />
     <ClCompile Include="..\libavcodec\dump_extradata_bsf.c" />
     <ClCompile Include="..\libavcodec\dca_core_bsf.c" />
+    <ClCompile Include="..\libavcodec\eac3_core_bsf.c" />
     <ClCompile Include="..\libavcodec\extract_extradata_bsf.c" />
+    <ClCompile Include="..\libavcodec\filter_units_bsf.c" />
+    <ClCompile Include="..\libavcodec\h264_metadata_bsf.c" />
+    <ClCompile Include="..\libavcodec\h264_levels.c" />
     <ClCompile Include="..\libavcodec\h264_mp4toannexb_bsf.c" />
+    <ClCompile Include="..\libavcodec\h264_redundant_pps_bsf.c" />
+    <ClCompile Include="..\libavcodec\hapqa_extract_bsf.c" />
+    <ClCompile Include="..\libavcodec\h265_metadata_bsf.c" />
     <ClCompile Include="..\libavcodec\hevc_mp4toannexb_bsf.c" />
     <ClCompile Include="..\libavcodec\imx_dump_header_bsf.c" />
     <ClCompile Include="..\libavcodec\mjpeg2jpeg_bsf.c" />
@@ -862,9 +888,12 @@
     <ClCompile Include="..\libavcodec\mpeg4_unpack_bframes_bsf.c" />
     <ClCompile Include="..\libavcodec\movsub_bsf.c" />
     <ClCompile Include="..\libavcodec\mp3_header_decompress_bsf.c" />
+    <ClCompile Include="..\libavcodec\mpeg2_metadata_bsf.c" />
     <ClCompile Include="..\libavcodec\noise_bsf.c" />
     <ClCompile Include="..\libavcodec\null_bsf.c" />
     <ClCompile Include="..\libavcodec\remove_extradata_bsf.c" />
+    <ClCompile Include="..\libavcodec\trace_headers_bsf.c" />
+    <ClCompile Include="..\libavcodec\vp9_metadata_bsf.c" />
     <ClCompile Include="..\libavcodec\vp9_raw_reorder_bsf.c" />
     <ClCompile Include="..\libavcodec\vp9_superframe_bsf.c" />
     <ClCompile Include="..\libavcodec\vp9_superframe_split_bsf.c" />
@@ -923,6 +952,7 @@
     <ClCompile Include="..\libavcodec\x86\xvididct_init.c" />
     <ClCompile Include="..\libavcodec\x86\proresdsp_init.c" />
     <ClCompile Include="..\libavcodec\x86\rv40dsp_init.c" />
+    <ClCompile Include="..\libavcodec\x86\sbcdsp_init.c" />
     <ClCompile Include="..\libavcodec\x86\svq1enc_init.c" />
     <ClCompile Include="..\libavcodec\x86\takdsp_init.c" />
     <ClCompile Include="..\libavcodec\x86\ttadsp_init.c" />
@@ -1049,6 +1079,9 @@
     <ClCompile Include="..\libavcodec\rv40dsp.c">
       <ObjectFileName>$(IntDir)\libavcodec_rv40dsp.obj</ObjectFileName>
     </ClCompile>
+    <ClCompile Include="..\libavcodec\sbcdsp.c">
+      <ObjectFileName>$(IntDir)\libavcodec_sbcdsp.obj</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="..\libavcodec\svq1enc.c">
       <ObjectFileName>$(IntDir)\libavcodec_svq1enc.obj</ObjectFileName>
     </ClCompile>
@@ -1096,6 +1129,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\libavcodec\ac3_parser.h" />
+    <ClInclude Include="..\libavcodec\adts_parser.h" />
     <ClInclude Include="..\libavcodec\avcodec.h" />
     <ClInclude Include="..\libavcodec\avdct.h" />
     <ClInclude Include="..\libavcodec\avfft.h" />
@@ -1107,7 +1142,6 @@
     <ClInclude Include="..\libavcodec\mediacodec.h" />
     <ClInclude Include="..\libavcodec\qsv.h" />
     <ClInclude Include="..\libavcodec\vaapi.h" />
-    <ClInclude Include="..\libavcodec\vda.h" />
     <ClInclude Include="..\libavcodec\vdpau.h" />
     <ClInclude Include="..\libavcodec\version.h" />
     <ClInclude Include="..\libavcodec\videotoolbox.h" />
@@ -1117,7 +1151,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B4824EFF-C340-425D-A4A8-E2E02A71A7AE}</ProjectGuid>
     <RootNamespace>libavcodec</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -1236,7 +1270,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\yasm.props" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\nasm.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -1354,7 +1388,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -1381,6 +1415,8 @@
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -1392,7 +1428,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -1423,11 +1458,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1462,6 +1497,8 @@ cd $(ProjectDir)
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -1473,7 +1510,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -1504,11 +1540,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1517,7 +1553,7 @@ cd $(ProjectDir)
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -1545,11 +1581,13 @@ cd $(ProjectDir)
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -1561,7 +1599,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -1592,11 +1629,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1636,6 +1673,8 @@ cd $(ProjectDir)
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -1647,7 +1686,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -1678,11 +1716,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1691,7 +1729,7 @@ cd $(ProjectDir)
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -1719,11 +1757,13 @@ cd $(ProjectDir)
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -1735,7 +1775,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -1766,11 +1805,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1810,6 +1849,8 @@ cd $(ProjectDir)
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -1821,7 +1862,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -1852,11 +1892,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1867,7 +1907,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FloatingPointExceptions>false</FloatingPointExceptions>
@@ -1885,7 +1925,6 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -1898,6 +1937,8 @@ cd $(ProjectDir)
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -1909,7 +1950,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -1940,11 +1980,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1971,7 +2011,6 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
@@ -1984,6 +2023,8 @@ cd $(ProjectDir)
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -1995,7 +2036,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -2026,11 +2066,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2041,7 +2081,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -2057,7 +2097,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -2077,6 +2117,8 @@ cd $(ProjectDir)
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -2088,7 +2130,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -2119,11 +2160,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2169,6 +2210,8 @@ cd $(ProjectDir)
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -2180,7 +2223,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -2211,11 +2253,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2226,7 +2268,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -2242,7 +2284,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -2262,6 +2304,8 @@ cd $(ProjectDir)
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -2273,7 +2317,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -2304,11 +2347,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2354,6 +2397,8 @@ cd $(ProjectDir)
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -2365,7 +2410,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -2396,11 +2440,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2411,7 +2455,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -2439,6 +2483,8 @@ cd $(ProjectDir)
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -2450,7 +2496,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -2481,11 +2526,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2524,6 +2569,8 @@ cd $(ProjectDir)
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\ac3_parser.h "$(OutDir)"\include\libavcodec
+copy ..\libavcodec\adts_parser.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avcodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avdct.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\avfft.h "$(OutDir)"\include\libavcodec
@@ -2535,7 +2582,6 @@ copy ..\libavcodec\jni.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\mediacodec.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\qsv.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vaapi.h "$(OutDir)"\include\libavcodec
-copy ..\libavcodec\vda.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\vdpau.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\version.h "$(OutDir)"\include\libavcodec
 copy ..\libavcodec\videotoolbox.h "$(OutDir)"\include\libavcodec
@@ -2566,11 +2612,11 @@ cd ../
 cd $(ProjectDir)
 )</Command>
     </PreBuildEvent>
-    <YASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;%(IncludePaths)</IncludePaths>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
       <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </YASM>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2578,6 +2624,6 @@ cd $(ProjectDir)
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\yasm.targets" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\nasm.targets" />
   </ImportGroup>
 </Project>

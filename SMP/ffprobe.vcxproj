@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="DebugDLL|Win32">
@@ -35,14 +35,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\cmdutils.c" />
-    <ClCompile Include="..\ffprobe.c" />
+    <ClCompile Include="..\fftools\cmdutils.c" />
+    <ClCompile Include="..\fftools\ffprobe.c" />
     <ClCompile Include="ffprobe\dce_defs.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{147A422A-FA63-4724-A5D9-08B1CAFDAB59}</ProjectGuid>
     <RootNamespace>ffprobe</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -180,7 +180,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <C99Support>true</C99Support>
@@ -205,7 +205,8 @@
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -257,6 +258,7 @@ del ..\libavutil\ffversion.h
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -284,7 +286,7 @@ del ..\libavutil\ffversion.h
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <C99Support>true</C99Support>
@@ -309,7 +311,8 @@ del ..\libavutil\ffversion.h
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -349,7 +352,6 @@ del ..\libavutil\ffversion.h
       <FloatingPointModel>Precise</FloatingPointModel>
       <MinimalRebuild>false</MinimalRebuild>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -361,6 +363,8 @@ del ..\libavutil\ffversion.h
       <IgnoreSpecificDefaultLibraries>LIBCMT.lib;LIBCPMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -391,7 +395,7 @@ del ..\libavutil\ffversion.h
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <OmitFramePointers>true</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <C99Support>true</C99Support>
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
@@ -417,7 +421,8 @@ del ..\libavutil\ffversion.h
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -474,6 +479,7 @@ del ..\libavutil\ffversion.h
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -503,7 +509,7 @@ del ..\libavutil\ffversion.h
       <WarningLevel>Level3</WarningLevel>
       <OmitFramePointers>true</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <C99Support>true</C99Support>
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
@@ -530,7 +536,8 @@ del ..\libavutil\ffversion.h
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -587,6 +594,7 @@ del ..\libavutil\ffversion.h
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>

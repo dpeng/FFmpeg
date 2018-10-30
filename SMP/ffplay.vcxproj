@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="DebugDLL|Win32">
@@ -35,14 +35,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\cmdutils.c" />
-    <ClCompile Include="..\ffplay.c" />
+    <ClCompile Include="..\fftools\cmdutils.c" />
+    <ClCompile Include="..\fftools\ffplay.c" />
     <ClCompile Include="ffplay\dce_defs.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E2A6865D-BD68-45B4-8130-EFD620F2C7EB}</ProjectGuid>
     <RootNamespace>ffplay</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -143,7 +143,7 @@
     <LocalDebuggerWorkingDirectory>$(OutDir)\bin\x86\</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IntDir>$(ProjectDir)..\msvc\$(Platform)\</IntDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\ffplay\</IntDir>
     <OutDir>$(ProjectDir)..\msvc\</OutDir>
     <LocalDebuggerWorkingDirectory>$(OutDir)\bin\x64\</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
@@ -180,7 +180,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <C99Support>true</C99Support>
@@ -205,7 +205,8 @@
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -234,7 +235,7 @@ del ..\libavutil\ffversion.h
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;.\..\depend\include\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;$(ProjectDir)\..\depend\include\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <C99Support>true</C99Support>
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
@@ -250,13 +251,14 @@ del ..\libavutil\ffversion.h
       <SubSystem>Console</SubSystem>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
       <AdditionalDependencies>Psapi.lib;libavdeviced.lib;libavfilterd.lib;libavformatd.lib;libavcodecd.lib;libpostprocd.lib;libswresampled.lib;libswscaled.lib;libavutild.lib;sdl2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;..\depend\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;$(ProjectDir)\..\depend\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
       <IgnoreSpecificDefaultLibraries>LIBCMT.lib;LIBCPMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -284,7 +286,7 @@ del ..\libavutil\ffversion.h
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <C99Support>true</C99Support>
@@ -309,7 +311,8 @@ del ..\libavutil\ffversion.h
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -349,7 +352,6 @@ del ..\libavutil\ffversion.h
       <FloatingPointModel>Precise</FloatingPointModel>
       <MinimalRebuild>false</MinimalRebuild>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -361,6 +363,8 @@ del ..\libavutil\ffversion.h
       <IgnoreSpecificDefaultLibraries>LIBCMT.lib;LIBCPMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -391,12 +395,12 @@ del ..\libavutil\ffversion.h
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <OmitFramePointers>true</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <C99Support>true</C99Support>
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;.\..\depend\include\sdl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -411,13 +415,14 @@ del ..\libavutil\ffversion.h
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Console</SubSystem>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-      <AdditionalDependencies>Psapi.lib;libavdevice.lib;libavfilter.lib;libavformat.lib;libavcodec.lib;libpostproc.lib;libswresample.lib;libswscale.lib;libavutil.lib;sdl2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;.\..\depend\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Psapi.lib;libavdevice.lib;libavfilter.lib;libavformat.lib;libavcodec.lib;libpostproc.lib;libswresample.lib;libswscale.lib;libavutil.lib;libsdl2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)\bin\x86\$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -453,7 +458,7 @@ del ..\libavutil\ffversion.h
       <C99Support>true</C99Support>
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(OutDir)\include\SDL;$(ProjectDir)\..\..\prebuilt\include\SDL;.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;.\..\depend\include\sdl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;$(ProjectDir)\..\depend\include\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -462,7 +467,6 @@ del ..\libavutil\ffversion.h
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -470,11 +474,12 @@ del ..\libavutil\ffversion.h
       <SubSystem>Console</SubSystem>
       <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
       <AdditionalDependencies>Psapi.lib;libavdevice.lib;libavfilter.lib;libavformat.lib;libavcodec.lib;libpostproc.lib;libswresample.lib;libswscale.lib;libavutil.lib;sdl2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;.\..\depend\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;$(ProjectDir)\..\depend\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -504,7 +509,7 @@ del ..\libavutil\ffversion.h
       <WarningLevel>Level3</WarningLevel>
       <OmitFramePointers>true</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0502;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <C99Support>true</C99Support>
       <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
@@ -531,7 +536,8 @@ del ..\libavutil\ffversion.h
       <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -588,6 +594,7 @@ del ..\libavutil\ffversion.h
       <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
       <Command>
