@@ -43,40 +43,40 @@
     <ClCompile Include="..\libavdevice\file_open.c">
       <Filter>Source Files\libavdevice</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavdevice\dshow_crossbar.c">
-      <Filter>Source Files\libavdevice</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavdevice\dshow.c">
-      <Filter>Source Files\libavdevice</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavdevice\dshow_enummediatypes.c">
-      <Filter>Source Files\libavdevice</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavdevice\dshow_enumpins.c">
-      <Filter>Source Files\libavdevice</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavdevice\dshow_filter.c">
-      <Filter>Source Files\libavdevice</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavdevice\dshow_pin.c">
-      <Filter>Source Files\libavdevice</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavdevice\dshow_common.c">
-      <Filter>Source Files\libavdevice</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libavdevice\gdigrab.c">
-      <Filter>Source Files\libavdevice</Filter>
-    </ClCompile>
     <ClCompile Include="..\libavdevice\lavfi.c">
       <Filter>Source Files\libavdevice</Filter>
     </ClCompile>
     <ClCompile Include="..\libavdevice\sdl2.c">
       <Filter>Source Files\libavdevice</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavdevice\vfwcap.c">
+    <ClCompile Include="libavdevice\dshow_wrap.c">
+      <Filter>Source Files\libavdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="libavdevice\dshow_common_wrap.c">
+      <Filter>Source Files\libavdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="libavdevice\dshow_crossbar_wrap.c">
+      <Filter>Source Files\libavdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="libavdevice\dshow_enummediatypes_wrap.c">
+      <Filter>Source Files\libavdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="libavdevice\dshow_enumpins_wrap.c">
+      <Filter>Source Files\libavdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="libavdevice\dshow_filter_wrap.c">
+      <Filter>Source Files\libavdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="libavdevice\dshow_pin_wrap.c">
+      <Filter>Source Files\libavdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="libavdevice\gdigrab_wrap.c">
       <Filter>Source Files\libavdevice</Filter>
     </ClCompile>
     <ClCompile Include="libavdevice\reverse_wrap.c">
+      <Filter>Source Files\libavdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="libavdevice\vfwcap_wrap.c">
       <Filter>Source Files\libavdevice</Filter>
     </ClCompile>
   </ItemGroup>

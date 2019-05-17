@@ -47,6 +47,7 @@
 #include "libavcodec/qpeldsp.h"
 #include "libavcodec/aacpsdsp.h"
 #include "libavcodec/pixblockdsp.h"
+#include "libavcodec/opusdsp.h"
 #include "libavcodec/mpegvideo.h"
 #include "libavcodec/mpegvideoencdsp.h"
 #include "libavcodec/mpegvideodsp.h"
@@ -3489,6 +3490,7 @@ void ff_mpv_common_init_axp(MpegEncContext *s) {return;}
 void ff_mpv_common_init_mips(MpegEncContext *s) {return;}
 void ff_mpv_common_init_neon(MpegEncContext *s) {return;}
 void ff_mpv_common_init_ppc(MpegEncContext *s) {return;}
+void ff_opus_dsp_init_aarch64(OpusDSP *ctx) {return;}
 void ff_pixblockdsp_init_alpha(PixblockDSPContext *c, AVCodecContext *avctx,
                                unsigned high_bit_depth) {return;}
 void ff_pixblockdsp_init_arm(PixblockDSPContext *c, AVCodecContext *avctx,
@@ -3575,10 +3577,13 @@ void ff_vorbisdsp_init_aarch64(VorbisDSPContext *dsp) {return;}
 void ff_vorbisdsp_init_arm(VorbisDSPContext *dsp) {return;}
 void ff_vorbisdsp_init_ppc(VorbisDSPContext *dsp) {return;}
 void ff_vp3dsp_init_arm(VP3DSPContext *c, int flags) {return;}
+void ff_vp3dsp_init_mips(VP3DSPContext *c, int flags) {return;}
 void ff_vp3dsp_init_ppc(VP3DSPContext *c, int flags) {return;}
 void ff_vp6dsp_init_arm(VP56DSPContext *s) {return;}
+void ff_vp78dsp_init_aarch64(VP8DSPContext *c) {return;}
 void ff_vp78dsp_init_arm(VP8DSPContext *c) {return;}
 void ff_vp78dsp_init_ppc(VP8DSPContext *c) {return;}
+void ff_vp8dsp_init_aarch64(VP8DSPContext *c) {return;}
 void ff_vp8dsp_init_arm(VP8DSPContext *c) {return;}
 void ff_vp8dsp_init_mips(VP8DSPContext *c) {return;}
 #if !(ARCH_X86_64)

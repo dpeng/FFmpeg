@@ -34,7 +34,13 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <NASM Include="..\libavfilter\x86\scene_sad.asm">
+      <Filter>Source Files\libavfilter\x86</Filter>
+    </NASM>
     <NASM Include="..\libavfilter\x86\af_afir.asm">
+      <Filter>Source Files\libavfilter\x86</Filter>
+    </NASM>
+    <NASM Include="..\libavfilter\x86\af_anlmdn.asm">
       <Filter>Source Files\libavfilter\x86</Filter>
     </NASM>
     <NASM Include="..\libavfilter\x86\vf_blend.asm">
@@ -480,7 +486,13 @@
     <ClCompile Include="..\libavfilter\boxblur.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavfilter\yadif_common.c">
+      <Filter>Source Files\libavfilter</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavfilter\vf_chromakey.c">
+      <Filter>Source Files\libavfilter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavfilter\vf_chromashift.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
     <ClCompile Include="..\libavfilter\vf_ciescope.c">
@@ -547,6 +559,9 @@
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
     <ClCompile Include="..\libavfilter\vf_decimate.c">
+      <Filter>Source Files\libavfilter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavfilter\vf_dedot.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
     <ClCompile Include="..\libavfilter\vf_neighbor.c">
@@ -636,10 +651,16 @@
     <ClCompile Include="..\libavfilter\vf_framestep.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavfilter\vf_freezedetect.c">
+      <Filter>Source Files\libavfilter</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavfilter\vf_gblur.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
     <ClCompile Include="..\libavfilter\vf_geq.c">
+      <Filter>Source Files\libavfilter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavfilter\f_graphmonitor.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
     <ClCompile Include="..\libavfilter\vf_colorconstancy.c">
@@ -697,6 +718,9 @@
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
     <ClCompile Include="..\libavfilter\vf_maskedclamp.c">
+      <Filter>Source Files\libavfilter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavfilter\vf_maskfun.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
     <ClCompile Include="..\libavfilter\vf_mcdeint.c">
@@ -813,9 +837,6 @@
     <ClCompile Include="..\libavfilter\vf_aspect.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavfilter\vf_setfield.c">
-      <Filter>Source Files\libavfilter</Filter>
-    </ClCompile>
     <ClCompile Include="..\libavfilter\vf_setparams.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
@@ -867,6 +888,9 @@
     <ClCompile Include="..\libavfilter\vf_tonemap.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavfilter\vf_tpad.c">
+      <Filter>Source Files\libavfilter</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavfilter\vf_transpose.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
@@ -886,6 +910,9 @@
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
     <ClCompile Include="..\libavfilter\vf_vfrdet.c">
+      <Filter>Source Files\libavfilter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavfilter\vf_vibrance.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
     <ClCompile Include="..\libavfilter\vf_vignette.c">
@@ -954,7 +981,13 @@
     <ClCompile Include="..\libavfilter\src_movie.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavfilter\x86\scene_sad_init.c">
+      <Filter>Source Files\libavfilter\x86</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavfilter\x86\af_afir_init.c">
+      <Filter>Source Files\libavfilter\x86</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavfilter\x86\af_anlmdn_init.c">
       <Filter>Source Files\libavfilter\x86</Filter>
     </ClCompile>
     <ClCompile Include="..\libavfilter\x86\vf_blend_init.c">
@@ -1035,7 +1068,13 @@
     <ClCompile Include="libavfilter\dce_defs.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavfilter\scene_sad.c">
+      <Filter>Source Files\libavfilter</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavfilter\af_afir.c">
+      <Filter>Source Files\libavfilter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavfilter\af_anlmdn.c">
       <Filter>Source Files\libavfilter</Filter>
     </ClCompile>
     <ClCompile Include="..\libavfilter\af_volume.c">

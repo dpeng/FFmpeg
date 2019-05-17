@@ -9,14 +9,6 @@
       <Configuration>DebugDLL</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="DebugDLLStaticDeps|Win32">
-      <Configuration>DebugDLLStaticDeps</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="DebugDLLStaticDeps|x64">
-      <Configuration>DebugDLLStaticDeps</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -41,12 +33,12 @@
       <Configuration>ReleaseDLLStaticDeps</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="ReleaseLTO|Win32">
-      <Configuration>ReleaseLTO</Configuration>
+    <ProjectConfiguration Include="ReleaseDLLStaticDeps|Win32">
+      <Configuration>ReleaseDLLStaticDeps</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="ReleaseLTO|x64">
-      <Configuration>ReleaseLTO</Configuration>
+    <ProjectConfiguration Include="ReleaseDLLStaticDeps|x64">
+      <Configuration>ReleaseDLLStaticDeps</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
@@ -83,6 +75,7 @@
     <ClCompile Include="..\libavutil\aes_ctr.c" />
     <ClCompile Include="..\libavutil\audio_fifo.c" />
     <ClCompile Include="..\libavutil\avstring.c" />
+    <ClCompile Include="..\libavutil\avsscanf.c" />
     <ClCompile Include="..\libavutil\base64.c" />
     <ClCompile Include="..\libavutil\blowfish.c" />
     <ClCompile Include="..\libavutil\bprint.c" />
@@ -105,6 +98,7 @@
     <ClCompile Include="..\libavutil\file_open.c" />
     <ClCompile Include="..\libavutil\frame.c" />
     <ClCompile Include="..\libavutil\hash.c" />
+    <ClCompile Include="..\libavutil\hdr_dynamic_metadata.c" />
     <ClCompile Include="..\libavutil\hmac.c" />
     <ClCompile Include="..\libavutil\hwcontext.c" />
     <ClCompile Include="..\libavutil\integer.c" />
@@ -140,7 +134,6 @@
     <ClCompile Include="..\libavutil\xga_font_data.c" />
     <ClCompile Include="..\libavutil\xtea.c" />
     <ClCompile Include="..\libavutil\tea.c" />
-    <ClCompile Include="..\libavutil\hwcontext_dxva2.c" />
     <ClCompile Include="..\libavutil\lzo.c" />
     <ClCompile Include="..\compat\msvcrt\snprintf.c" />
     <ClCompile Include="..\compat\strtod.c" />
@@ -151,6 +144,7 @@
     <ClCompile Include="..\libavutil\x86\lls_init.c" />
     <ClCompile Include="..\libavutil\x86\pixelutils_init.c" />
     <ClCompile Include="libavutil\hwcontext_d3d11va_wrap.c" />
+    <ClCompile Include="libavutil\hwcontext_dxva2_wrap.c" />
     <ClCompile Include="libavutil\dce_defs.c" />
     <ClCompile Include="..\libavutil\float_dsp.c">
       <ObjectFileName>$(IntDir)\libavutil_float_dsp.obj</ObjectFileName>
@@ -202,6 +196,7 @@
     <ClInclude Include="..\libavutil\file.h" />
     <ClInclude Include="..\libavutil\frame.h" />
     <ClInclude Include="..\libavutil\hash.h" />
+    <ClInclude Include="..\libavutil\hdr_dynamic_metadata.h" />
     <ClInclude Include="..\libavutil\hmac.h" />
     <ClInclude Include="..\libavutil\hwcontext.h" />
     <ClInclude Include="..\libavutil\hwcontext_cuda.h" />
@@ -265,7 +260,8 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)'=='16.0'">v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -273,7 +269,8 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)'=='16.0'">v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -281,7 +278,8 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)'=='16.0'">v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -289,23 +287,8 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)'=='16.0'">v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -313,7 +296,8 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)'=='16.0'">v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -321,7 +305,8 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)'=='16.0'">v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -329,7 +314,8 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)'=='16.0'">v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -337,7 +323,8 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)'=='16.0'">v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -345,7 +332,8 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset Condition="'$(VisualStudioVersion)'=='16.0'">v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -353,25 +341,8 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='12.0'">v120</PlatformToolset>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='14.0'">v140</PlatformToolset>
-    <PlatformToolset Condition="'$(VisualStudioVersion)'=='15.0'">v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset Condition="'$(VisualStudioVersion)'=='16.0'">v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -387,12 +358,6 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -411,12 +376,6 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -493,7 +452,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -507,7 +466,7 @@
       <FloatingPointModel>Precise</FloatingPointModel>
       <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
       <MinimalRebuild>false</MinimalRebuild>
-      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;4703;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
@@ -550,6 +509,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
@@ -632,13 +592,13 @@ cd $(ProjectDir)
     </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MSC_VER;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;_DEBUG;DEBUG;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -651,7 +611,7 @@ cd $(ProjectDir)
       <FloatingPointModel>Precise</FloatingPointModel>
       <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
       <MinimalRebuild>false</MinimalRebuild>
-      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;4703;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX64</TargetMachine>
@@ -694,6 +654,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
@@ -776,13 +737,13 @@ cd $(ProjectDir)
     </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MSC_VER;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -796,7 +757,7 @@ cd $(ProjectDir)
       <FloatingPointModel>Precise</FloatingPointModel>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MinimalRebuild>false</MinimalRebuild>
-      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;4703;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -809,7 +770,7 @@ cd $(ProjectDir)
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LargeAddressAware>true</LargeAddressAware>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099,4264 %(AdditionalOptions)</AdditionalOptions>
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
@@ -845,6 +806,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
@@ -927,13 +889,13 @@ cd $(ProjectDir)
     </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MSC_VER;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <C99Support>true</C99Support>
@@ -946,8 +908,7 @@ cd $(ProjectDir)
       <FloatingPointModel>Precise</FloatingPointModel>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
       <MinimalRebuild>false</MinimalRebuild>
-      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;4703;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -959,157 +920,7 @@ cd $(ProjectDir)
       <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-    </Link>
-    <PostBuildEvent>
-      <Command>mkdir "$(OutDir)"\include
-mkdir "$(OutDir)"\include\libavutil
-copy ..\libavutil\adler32.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\aes.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\aes_ctr.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\attributes.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\audio_fifo.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\avassert.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\avstring.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\avutil.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\base64.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\blowfish.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\bprint.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\bswap.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\buffer.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\cast5.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\camellia.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\channel_layout.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\common.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\cpu.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\crc.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\imgutils.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\intfloat.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\intreadwrite.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\lfg.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\log.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\macros.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\mathematics.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\mastering_display_metadata.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\md5.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\mem.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\motion_vector.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\murmur3.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\opt.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\parseutils.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\pixdesc.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\pixelutils.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\pixfmt.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\random_seed.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\rc4.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\rational.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\replaygain.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\ripemd.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\samplefmt.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\sha.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\sha512.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\spherical.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\stereo3d.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\threadmessage.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\time.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\timecode.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\timestamp.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\tree.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\twofish.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\version.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\xtea.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\tea.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\lzo.h "$(OutDir)"\include\libavutil
-copy libavutil\avconfig.h "$(OutDir)"\include\libavutil
-copy libavutil\ffversion.h "$(OutDir)"\include\libavutil
-mkdir "$(OutDir)"\licenses
-copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
-    </PostBuildEvent>
-    <PreBuildEvent>
-      <Command>if exist ..\config.h (
-del ..\config.h
-)
-if exist ..\version.h (
-del ..\version.h
-)
-if exist ..\config.asm (
-del ..\config.asm
-)
-if exist ..\libavutil\avconfig.h (
-del ..\libavutil\avconfig.h
-)
-if exist ..\libavutil\ffversion.h (
-del ..\libavutil\ffversion.h
-)
-if exist "$(OutDir)"\include\libavutil (
-rd /s /q "$(OutDir)"\include\libavutil
-cd ../
-cd $(ProjectDir)
-)</Command>
-    </PreBuildEvent>
-    <NASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
-      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-    </NASM>
-    <ResourceCompile>
-      <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <C99Support>true</C99Support>
-      <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-      <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <OmitFramePointers>false</OmitFramePointers>
-      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <FloatingPointModel>Precise</FloatingPointModel>
-      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <MinimalRebuild>false</MinimalRebuild>
-      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\bin\x86\$(TargetName)$(TargetExt)</OutputFile>
-      <ImportLibrary>$(OutDir)\lib\x86\$(TargetName).lib</ImportLibrary>
-      <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
-      <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
-      <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <LargeAddressAware>true</LargeAddressAware>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099,4264 %(AdditionalOptions)</AdditionalOptions>
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
     <PostBuildEvent>
@@ -1145,6 +956,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
@@ -1227,156 +1039,7 @@ cd $(ProjectDir)
     </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLLStaticDeps|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <C99Support>true</C99Support>
-      <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
-      <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <FloatingPointModel>Precise</FloatingPointModel>
-      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <MinimalRebuild>false</MinimalRebuild>
-      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
-      <ImportLibrary>$(OutDir)\lib\x64\$(TargetName).lib</ImportLibrary>
-      <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
-      <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
-      <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
-      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
-    </Link>
-    <PostBuildEvent>
-      <Command>mkdir "$(OutDir)"\include
-mkdir "$(OutDir)"\include\libavutil
-copy ..\libavutil\adler32.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\aes.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\aes_ctr.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\attributes.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\audio_fifo.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\avassert.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\avstring.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\avutil.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\base64.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\blowfish.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\bprint.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\bswap.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\buffer.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\cast5.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\camellia.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\channel_layout.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\common.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\cpu.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\crc.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\imgutils.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\intfloat.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\intreadwrite.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\lfg.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\log.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\macros.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\mathematics.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\mastering_display_metadata.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\md5.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\mem.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\motion_vector.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\murmur3.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\opt.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\parseutils.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\pixdesc.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\pixelutils.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\pixfmt.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\random_seed.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\rc4.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\rational.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\replaygain.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\ripemd.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\samplefmt.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\sha.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\sha512.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\spherical.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\stereo3d.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\threadmessage.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\time.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\timecode.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\timestamp.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\tree.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\twofish.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\version.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\xtea.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\tea.h "$(OutDir)"\include\libavutil
-copy ..\libavutil\lzo.h "$(OutDir)"\include\libavutil
-copy libavutil\avconfig.h "$(OutDir)"\include\libavutil
-copy libavutil\ffversion.h "$(OutDir)"\include\libavutil
-mkdir "$(OutDir)"\licenses
-copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
-    </PostBuildEvent>
-    <PreBuildEvent>
-      <Command>if exist ..\config.h (
-del ..\config.h
-)
-if exist ..\version.h (
-del ..\version.h
-)
-if exist ..\config.asm (
-del ..\config.asm
-)
-if exist ..\libavutil\avconfig.h (
-del ..\libavutil\avconfig.h
-)
-if exist ..\libavutil\ffversion.h (
-del ..\libavutil\ffversion.h
-)
-if exist "$(OutDir)"\include\libavutil (
-rd /s /q "$(OutDir)"\include\libavutil
-cd ../
-cd $(ProjectDir)
-)</Command>
-    </PreBuildEvent>
-    <NASM>
-      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
-      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-    </NASM>
-    <ResourceCompile>
-      <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MSC_VER;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -1384,7 +1047,7 @@ cd $(ProjectDir)
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FloatingPointExceptions>false</FloatingPointExceptions>
@@ -1400,17 +1063,26 @@ cd $(ProjectDir)
       <FloatingPointModel>Precise</FloatingPointModel>
       <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MinimalRebuild>false</MinimalRebuild>
       <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
-    <Lib>
-      <TargetMachine>MachineX86</TargetMachine>
+    <Link>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)\bin\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)\lib\x86\$(TargetName).lib</ImportLibrary>
+      <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
+      <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
+      <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
       <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LargeAddressAware>true</LargeAddressAware>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
-    </Lib>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+    </Link>
     <PostBuildEvent>
       <Command>mkdir "$(OutDir)"\include
 mkdir "$(OutDir)"\include\libavutil
@@ -1444,6 +1116,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
@@ -1526,15 +1199,327 @@ cd $(ProjectDir)
     </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MSC_VER;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;_LIB;NDEBUG;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <C99Support>true</C99Support>
+      <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
+      <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <MinimalRebuild>false</MinimalRebuild>
+      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)\lib\x64\$(TargetName).lib</ImportLibrary>
+      <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
+      <ModuleDefinitionFile>.\libavutil.def</ModuleDefinitionFile>
+      <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavutil
+copy ..\libavutil\adler32.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\aes.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\aes_ctr.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\attributes.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\audio_fifo.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\avassert.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\avstring.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\avutil.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\base64.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\blowfish.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\bprint.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\bswap.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\buffer.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\cast5.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\camellia.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\channel_layout.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\common.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\cpu.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\crc.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\imgutils.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\intfloat.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\intreadwrite.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\lfg.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\log.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\macros.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\mathematics.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\mastering_display_metadata.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\md5.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\mem.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\motion_vector.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\murmur3.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\opt.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\parseutils.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\pixdesc.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\pixelutils.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\pixfmt.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\random_seed.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\rc4.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\rational.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\replaygain.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\ripemd.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\samplefmt.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\sha.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\sha512.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\spherical.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\stereo3d.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\threadmessage.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\time.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\timecode.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\timestamp.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\tree.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\twofish.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\version.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\xtea.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\tea.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\lzo.h "$(OutDir)"\include\libavutil
+copy libavutil\avconfig.h "$(OutDir)"\include\libavutil
+copy libavutil\ffversion.h "$(OutDir)"\include\libavutil
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist ..\config.h (
+del ..\config.h
+)
+if exist ..\version.h (
+del ..\version.h
+)
+if exist ..\config.asm (
+del ..\config.asm
+)
+if exist ..\libavutil\avconfig.h (
+del ..\libavutil\avconfig.h
+)
+if exist ..\libavutil\ffversion.h (
+del ..\libavutil\ffversion.h
+)
+if exist "$(OutDir)"\include\libavutil (
+rd /s /q "$(OutDir)"\include\libavutil
+cd ../
+cd $(ProjectDir)
+)</Command>
+    </PreBuildEvent>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MSC_VER;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <AdditionalIncludeDirectories>.\;..\;$(OutDir)\include;$(ProjectDir)\..\..\prebuilt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <C99Support>true</C99Support>
+      <EnableAnsiAliasing Condition="'$(PlatformToolset)'!='Intel C++ Compiler XE 13.0'">true</EnableAnsiAliasing>
+      <ForcedIncludeFiles>compat.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
+      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Lib>
+      <TargetMachine>MachineX86</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include
+mkdir "$(OutDir)"\include\libavutil
+copy ..\libavutil\adler32.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\aes.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\aes_ctr.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\attributes.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\audio_fifo.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\avassert.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\avstring.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\avutil.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\base64.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\blowfish.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\bprint.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\bswap.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\buffer.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\cast5.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\camellia.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\channel_layout.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\common.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\cpu.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\crc.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\des.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\dict.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\display.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\downmix_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\encryption_info.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\error.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\eval.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_d3d11va.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_drm.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_dxva2.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_qsv.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_mediacodec.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_vaapi.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_videotoolbox.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hwcontext_vdpau.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\imgutils.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\intfloat.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\intreadwrite.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\lfg.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\log.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\macros.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\mathematics.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\mastering_display_metadata.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\md5.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\mem.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\motion_vector.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\murmur3.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\opt.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\parseutils.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\pixdesc.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\pixelutils.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\pixfmt.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\random_seed.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\rc4.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\rational.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\replaygain.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\ripemd.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\samplefmt.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\sha.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\sha512.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\spherical.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\stereo3d.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\threadmessage.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\time.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\timecode.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\timestamp.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\tree.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\twofish.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\version.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\xtea.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\tea.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\lzo.h "$(OutDir)"\include\libavutil
+copy libavutil\avconfig.h "$(OutDir)"\include\libavutil
+copy libavutil\ffversion.h "$(OutDir)"\include\libavutil
+mkdir "$(OutDir)"\licenses
+copy ..\COPYING.GPLv3 "$(OutDir)"\licenses\ffmpeg.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist ..\config.h (
+del ..\config.h
+)
+if exist ..\version.h (
+del ..\version.h
+)
+if exist ..\config.asm (
+del ..\config.asm
+)
+if exist ..\libavutil\avconfig.h (
+del ..\libavutil\avconfig.h
+)
+if exist ..\libavutil\ffversion.h (
+del ..\libavutil\ffversion.h
+)
+if exist "$(OutDir)"\include\libavutil (
+rd /s /q "$(OutDir)"\include\libavutil
+cd ../
+cd $(ProjectDir)
+)</Command>
+    </PreBuildEvent>
+    <NASM>
+      <IncludePaths>$(ProjectDir);$(ProjectDir)\..\;$(ProjectDir)\..\\$(ProjectName)\x86;%(IncludePaths)</IncludePaths>
+      <PreIncludeFiles>config.asm;%(PreIncludeFiles)</PreIncludeFiles>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </NASM>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MSC_VER;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -1592,6 +1577,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
@@ -1674,15 +1660,15 @@ cd $(ProjectDir)
     </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MSC_VER;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -1697,8 +1683,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;4703;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -1712,7 +1697,8 @@ cd $(ProjectDir)
       <AdditionalDependencies>Bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LargeAddressAware>true</LargeAddressAware>
-      <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/IGNORE:4006,4221,4049,4217,4197,4099,4264 %(AdditionalOptions)</AdditionalOptions>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
@@ -1748,6 +1734,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
@@ -1830,15 +1817,15 @@ cd $(ProjectDir)
     </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MSC_VER;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_AV_CONFIG_H;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0600;NDEBUG;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -1853,8 +1840,7 @@ cd $(ProjectDir)
       <AdditionalOptions Condition="$([System.String]::Copy($(PlatformToolset)).Contains('Intel'))">/Qvec- /Qsimd- %(AdditionalOptions)</AdditionalOptions>
       <AdditionalOptions Condition="'$(AdditionalOptions)' == '' and '$(VisualStudioVersion)' != '12.0'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
-      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+      <DisableSpecificWarnings>4244;4267;4018;4146;4028;4996;4090;4114;4308;4305;4005;4101;4554;4307;4273;4133;4544;4334;4293;4047;4703;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -1903,6 +1889,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
@@ -1985,7 +1972,7 @@ cd $(ProjectDir)
     </NASM>
     <ResourceCompile>
       <AdditionalIncludeDirectories>.\;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MSC_VER;BUILDING_avutil;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLLStaticDeps|Win32'">
@@ -2059,6 +2046,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
@@ -2214,6 +2202,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
@@ -2362,6 +2351,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil
@@ -2510,6 +2500,7 @@ copy ..\libavutil\fifo.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\file.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\frame.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hash.h "$(OutDir)"\include\libavutil
+copy ..\libavutil\hdr_dynamic_metadata.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hmac.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext.h "$(OutDir)"\include\libavutil
 copy ..\libavutil\hwcontext_cuda.h "$(OutDir)"\include\libavutil

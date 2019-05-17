@@ -78,6 +78,9 @@
     <ClCompile Include="..\libavutil\avstring.c">
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
+    <ClCompile Include="..\libavutil\avsscanf.c">
+      <Filter>Source Files\libavutil</Filter>
+    </ClCompile>
     <ClCompile Include="..\libavutil\base64.c">
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
@@ -142,6 +145,9 @@
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
     <ClCompile Include="..\libavutil\hash.c">
+      <Filter>Source Files\libavutil</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libavutil\hdr_dynamic_metadata.c">
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
     <ClCompile Include="..\libavutil\hmac.c">
@@ -249,9 +255,6 @@
     <ClCompile Include="..\libavutil\tea.c">
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
-    <ClCompile Include="..\libavutil\hwcontext_dxva2.c">
-      <Filter>Source Files\libavutil</Filter>
-    </ClCompile>
     <ClCompile Include="..\libavutil\lzo.c">
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
@@ -280,6 +283,9 @@
       <Filter>Source Files\libavutil\x86</Filter>
     </ClCompile>
     <ClCompile Include="libavutil\hwcontext_d3d11va_wrap.c">
+      <Filter>Source Files\libavutil</Filter>
+    </ClCompile>
+    <ClCompile Include="libavutil\hwcontext_dxva2_wrap.c">
       <Filter>Source Files\libavutil</Filter>
     </ClCompile>
     <ClCompile Include="libavutil\dce_defs.c">
@@ -393,6 +399,9 @@
       <Filter>Header Files\libavutil</Filter>
     </ClInclude>
     <ClInclude Include="..\libavutil\hash.h">
+      <Filter>Header Files\libavutil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libavutil\hdr_dynamic_metadata.h">
       <Filter>Header Files\libavutil</Filter>
     </ClInclude>
     <ClInclude Include="..\libavutil\hmac.h">
